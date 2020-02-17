@@ -1,10 +1,17 @@
 # front-end ❌
 - babel 👌
-- vuex 👌
+- vuex ✍
 - eslint 👌
-- axios 
+- axios ✍
 - element-ui ✍
-- font-awesome
-- vue-chartjs
-- vue-baidu-map
+- font-awesome ✍
+- vue-chartjs ✍
+- vue-baidu-map ✍
+- three.js
 
+
+*** 任务列表 ***
+
+- [x] 框架基本配置
+- [x] 加入Element-UI
+ 
