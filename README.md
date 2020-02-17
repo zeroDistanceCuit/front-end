@@ -18,7 +18,7 @@
 - [x] 引入axios库
 - [x] vue-cli@4跨域问题
 - [] 封装http请求方法，二次重新封装axios，加入pwt验证
-- [] vue-cli@4的跨域出现问题，不能将请求方式传到后端
-- [] https://blog.csdn.net/u010775025/article/details/97623715
+- [x] vue-cli@4的跨域出现问题，不能将请求方式传到后端
 - [] token与vuex相结合
+- [] https://juejin.im/post/5b55c118f265da0f6f1aa354#heading-10
  

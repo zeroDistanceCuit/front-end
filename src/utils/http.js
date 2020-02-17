@@ -10,7 +10,8 @@ export function post (url, data, error) {
             err = error ? error : err
             Message({
                 message: err,
-                duration: 500
+                duration: 500,
+                type:'error'
             })
             reject(err)
         })
@@ -24,7 +25,8 @@ export function get (url, data, error) {
             err = error ? error : err
             Message({
                 message: err,
-                duration: 500
+                duration: 500,
+                type:'error'
             })
             reject(err)
         })
