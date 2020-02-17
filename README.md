@@ -14,4 +14,5 @@
 
 - [x] 框架基本配置
 - [x] 加入Element-UI
+- [x] 引入font-awesome样式库
  
