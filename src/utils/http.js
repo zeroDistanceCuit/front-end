@@ -37,7 +37,7 @@
  * 请求拦截、相应拦截、错误统一处理
  */
 import axios from 'axios';
-import QS from 'qs';
+// import QS from 'qs';
 import { Message } from 'element-ui'
 import store from '../store/user-auth/index'
 import router from "../router/index";
@@ -55,7 +55,7 @@ if (process.env.NODE_ENV == 'development') {
 axios.defaults.timeout = 10000;
 
 // post请求头
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
 // 请求拦截器
 axios.interceptors.request.use(
@@ -143,7 +143,7 @@ axios.interceptors.response.use(
 export function get(url, params) {
     return new Promise((resolve, reject) => {
         axios.get(url, {
-            params: params
+            params: JSON.stringify(params)
         })
             .then(res => {
                 resolve(res.data);
@@ -160,7 +160,7 @@ export function get(url, params) {
  */
 export function post(url, params) {
     return new Promise((resolve, reject) => {
-        axios.post(url, QS.stringify(params))
+        axios.post(url, JSON.stringify(params))
             .then(res => {
                 resolve(res.data);
             })
