@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <head>
+    <link rel="icon" href="./assets/logo.ico" type="image/x-icon">
+    </head>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
