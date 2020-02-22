@@ -1,6 +1,7 @@
 <template>
   <div>
-      
+      <Nav/>
+      <Footer/>
   </div>
 </template>
 
@@ -12,5 +13,9 @@ export default {
 </script>
 
 <style>
-
+* {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+}
 </style>
