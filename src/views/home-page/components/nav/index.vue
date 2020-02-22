@@ -5,8 +5,9 @@
     </div>
     <div>
       <el-menu
+        router
         :default-active="activeIndex"
-        class="nav-menu"
+        class="el-menu-demo nav-menu"
         mode="horizontal"
         @select="handleSelect"
       >
@@ -23,12 +24,11 @@
             <el-menu-item index="2-4-3">选项3</el-menu-item>
           </el-submenu>
         </el-submenu>
-        <el-menu-item index="3" disabled>消息中心</el-menu-item>
+        <el-menu-item index="3">消息中心</el-menu-item>
         <el-menu-item index="4">
-          <a href="https://www.ele.me" target="_blank">订单管理</a>
+          订单管理
         </el-menu-item>
       </el-menu>
-      <div class="line"></div>
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-demo {
   height: 9.5%;
   width: 100%;
@@ -50,14 +50,31 @@ export default {
 }
 .img-block {
   width: 6.7%;
-  /* float: left; */
 }
 .img-logo {
   height: 31px;
   margin-left: 10%;
   margin-top: 10%;
 }
-.nav-menu{
-
+.nav-menu {
+  width: 40%;
 }
+.el-menu-demo:not(.el-menu--collapse) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 10%;
+  width: 40%;
+  height: 100%;
+  font-size: 14px;
+  /* min-height: 400px; */
+}
+.el-menu-item  {
+  font-size: 10px
+}
+.el-submenu__title{
+  font-size: 10px
+}
+.menuHover { border : solid 1px green; text-decoration : none; }    
+
 </style>
