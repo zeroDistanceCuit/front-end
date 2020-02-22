@@ -1,7 +1,8 @@
 export const Nav = {
     data() {
         return {
-            url: '../../../../assets/logo.jpg'
+            activeIndex: '1',
+            activeIndex2: '1'
         }
     },
 
@@ -10,7 +11,9 @@ export const Nav = {
     },
 
     methods: {
-
+        handleSelect(key, keyPath) {
+            console.log(key, keyPath);
+        }
     },
 
     mounted() {

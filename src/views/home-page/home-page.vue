@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="home-body">
       <Nav/>
       <Footer/>
   </div>
@@ -14,8 +14,7 @@ export default {
 
 <style>
 * {
-  position: fixed;
-  top: 0%;
-  left: 0%;
+ margin: 0%;
+ padding: 0%
 }
 </style>

@@ -1,8 +1,34 @@
 <template>
-  <div class="demo-image__error nav-image">
-    <div class="block">
-      <span class="demonstration">默认</span>
-      <el-image style="width: 100px; height: 100px" :src="url" :fit="fit"></el-image>
+  <div class="nav-demo">
+    <div class="img-block">
+      <img class="img-logo" src="../../../../assets/logo.jpg" />
+    </div>
+    <div>
+      <el-menu
+        :default-active="activeIndex"
+        class="nav-menu"
+        mode="horizontal"
+        @select="handleSelect"
+      >
+        <el-menu-item index="1">处理中心</el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">我的工作台</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+        <el-menu-item index="3" disabled>消息中心</el-menu-item>
+        <el-menu-item index="4">
+          <a href="https://www.ele.me" target="_blank">订单管理</a>
+        </el-menu-item>
+      </el-menu>
+      <div class="line"></div>
     </div>
   </div>
 </template>
@@ -15,20 +41,23 @@ export default {
 </script>
 
 <style>
-.el-col {
-  border-radius: 4px;
+.nav-demo {
+  height: 9.5%;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  background-color: white;
 }
-.bg-purple-dark {
-  background: #99a9bf;
+.img-block {
+  width: 6.7%;
+  /* float: left; */
 }
-.bg-purple {
-  background: #d3dce6;
+.img-logo {
+  height: 31px;
+  margin-left: 10%;
+  margin-top: 10%;
 }
-.bg-purple-light {
-  background: #e5e9f2;
-}
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
+.nav-menu{
+
 }
 </style>
