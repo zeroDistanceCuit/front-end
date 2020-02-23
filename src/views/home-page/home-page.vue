@@ -12,8 +12,7 @@
         class="el-menu-demo nav-menu"
         mode="horizontal"
         @select="handleSelect"
-        text-color="#a69f9f"
-        active-text-color="#000000"
+        text-color="#19241c"
       >
         <el-submenu index="1">
           <template slot="title">男装</template>
@@ -40,7 +39,7 @@
           </el-submenu>
         </el-submenu>
         <el-submenu index="3" style="margin-left:-15px">
-          <template slot="title">中古逸品</template>
+          <template slot="title">童装</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
           <el-menu-item index="2-3">选项3</el-menu-item>
@@ -52,7 +51,7 @@
           </el-submenu>
         </el-submenu>
         <el-submenu index="4" style="margin-left:-15px">
-          <template slot="title">折扣商品</template>
+          <template slot="title">中古逸品</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
           <el-menu-item index="2-3">选项3</el-menu-item>
@@ -64,6 +63,18 @@
           </el-submenu>
         </el-submenu>
         <el-submenu index="5" style="margin-left:-15px">
+          <template slot="title">折扣商品</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+        <el-submenu index="6" style="margin-left:-15px">
           <template slot="title">活动</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
@@ -77,8 +88,8 @@
         </el-submenu>
       </el-menu>
 
-      <div>
-
+      <div class="nav-right">
+        <el-input @keyup.enter.native="search($event)" style="width:38%;margin-top:2%" v-model="input" suffix-icon="el-input__icon el-icon-search" placeholder="搜索"></el-input>
       </div>
     </el-container>
     <el-main>
@@ -95,6 +106,16 @@ export default {
 </script>
 
 <style scoped>
+
+.nav-right {
+  border: 1px solid red;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 9.5%;
+}
 * {
   margin: 0%;
   padding: 0%;
@@ -110,7 +131,7 @@ export default {
   width: 6.7%;
 }
 .img-logo {
-  height: 31px;
+  height: 50px;
   margin-left: 10%;
   margin-top: 10%;
 }
@@ -121,7 +142,7 @@ export default {
 .el-menu-demo:not(.el-menu--collapse) {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 15px;
   margin-left: 10%;
   width: 40%;
   box-shadow: unset;
@@ -129,23 +150,28 @@ export default {
   /* heig */
 }
 .el-menu-item {
-  font-size: 8px;
+  font-size: 12px;
   border-bottom: 0;
 }
 /* .menuHover {
   border: solid 1px green;
   text-decoration: none;
 } */
-.el-menu--horizontal>.el-menu-item.is-active{
-  border-bottom: 1px solid black
+.el-menu--horizontal > .el-menu-item.is-active {
+  border-bottom: 1px solid black;
 }
-
 </style>
 
 
 <style>
+.el-input.is-active .el-input__inner, .el-input__inner:focus{
+  border-color:black !important;
+}
+.el-input__inner{
+  border-radius:0px !important
+}
 .el-submenu__title {
-  font-size: 8px !important;
+  font-size: 12px !important;
 }
 /* .el-vertical__title {
   font-size: 10
@@ -153,8 +179,7 @@ export default {
 .el-menu--horizontal > .el-submenu .el-submenu__icon-arrow {
   display: none !important;
 }
-.el-menu--horizontal>.el-submenu.is-active .el-submenu__title{
-  border-bottom: 0px !important
+.el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
+  border-bottom: 0px !important;
 }
-
 </style>

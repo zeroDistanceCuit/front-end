@@ -8,7 +8,7 @@ export const homePage = {
     data() {
         return {
             activeIndex: '1',
-            activeIndex2: '1'
+            input: ''
         }
     },
 
@@ -19,7 +19,11 @@ export const homePage = {
     methods: {
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
+        },
+        search(){
+            console.log(this.input)
         }
+
     },
 
     mounted() {
