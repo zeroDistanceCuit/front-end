@@ -12,9 +12,22 @@
         class="el-menu-demo nav-menu"
         mode="horizontal"
         @select="handleSelect"
+        text-color="#a69f9f"
+        active-text-color="#000000"
       >
-        <el-menu-item index="1" style="width:20px">男装</el-menu-item>
-        <el-submenu index="2"  >
+        <el-submenu index="1">
+          <template slot="title">男装</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+        <el-submenu index="2" style="margin-left:-15px">
           <template slot="title">女装</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
@@ -26,14 +39,47 @@
             <el-menu-item index="2-4-3">选项3</el-menu-item>
           </el-submenu>
         </el-submenu>
-        <el-menu-item index="3"  style="width:40px">中古逸品</el-menu-item>
-        <el-menu-item index="4"  style="width:40px">
-          折扣商品
-        </el-menu-item>
-        <el-menu-item index="5"  style="width:20px">
-          活动
-        </el-menu-item>
+        <el-submenu index="3" style="margin-left:-15px">
+          <template slot="title">中古逸品</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+        <el-submenu index="4" style="margin-left:-15px">
+          <template slot="title">折扣商品</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+        <el-submenu index="5" style="margin-left:-15px">
+          <template slot="title">活动</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
+        </el-submenu>
       </el-menu>
+
+      <div>
+
+      </div>
     </el-container>
     <el-main>
       <router-view></router-view>
@@ -70,6 +116,7 @@ export default {
 }
 .nav-menu {
   width: 40%;
+  margin-top: -5px;
 }
 .el-menu-demo:not(.el-menu--collapse) {
   position: absolute;
@@ -83,6 +130,7 @@ export default {
 }
 .el-menu-item {
   font-size: 8px;
+  border-bottom: 0;
 }
 /* .menuHover {
   border: solid 1px green;
@@ -91,6 +139,7 @@ export default {
 .el-menu--horizontal>.el-menu-item.is-active{
   border-bottom: 1px solid black
 }
+
 </style>
 
 
@@ -101,8 +150,11 @@ export default {
 /* .el-vertical__title {
   font-size: 10
 } */
-.el-menu--horizontal>.el-submenu .el-submenu__icon-arrow{
-  display: none !important
+.el-menu--horizontal > .el-submenu .el-submenu__icon-arrow {
+  display: none !important;
+}
+.el-menu--horizontal>.el-submenu.is-active .el-submenu__title{
+  border-bottom: 0px !important
 }
 
 </style>
