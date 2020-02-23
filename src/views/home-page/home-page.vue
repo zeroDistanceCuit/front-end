@@ -7,25 +7,14 @@
         </div>
       </div>
       <el-menu
-        StaticEnableDefaultPopOutImage="false"
-        :default-active="activeIndex"
+        default-active="currentPath"
+        router
         class="el-menu-demo nav-menu"
         mode="horizontal"
         @select="handleSelect"
         text-color="#19241c"
       >
-        <el-submenu index="1">
-          <template slot="title">男装</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-        </el-submenu>
+        <el-menu-item index="/about">男装</el-menu-item>
         <el-submenu index="2" style="margin-left:-15px">
           <template slot="title">女装</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
@@ -89,10 +78,28 @@
       </el-menu>
 
       <div class="nav-right">
-        <el-input @keyup.enter.native="search($event)" style="width:38%;margin-top:2%" v-model="input" suffix-icon="el-input__icon el-icon-search" placeholder="搜索"></el-input>
+        <el-input
+          @keyup.enter.native="search($event)"
+          style="width:38%;margin-top:2%"
+          v-model="input"
+          suffix-icon="el-input__icon el-icon-search"
+          placeholder="搜索"
+        ></el-input>
+
+        <el-button type="text" style="color:#758bbc">登录</el-button>
+        <el-button type="text" style="color:#758bbc">个人信息</el-button>
+        <el-button plain style="color:#758bbc;border-radius:0px">
+          <i style="color:black;font-size:18px" class="fa fa-shopping-bag" />&nbsp;&nbsp;您的购物车
+        </el-button>
+
+        <img
+          src="../../assets/cn.jpg"
+          style="float:right;margin-top:1.6%;margin-right:4%;margin-left:-8%"
+        />
       </div>
     </el-container>
-    <el-main>
+    <el-main style="width:100%;height:800px">
+      da's'da's
       <router-view></router-view>
     </el-main>
   </div>
@@ -106,9 +113,7 @@ export default {
 </script>
 
 <style scoped>
-
 .nav-right {
-  border: 1px solid red;
   display: inline-block;
   position: absolute;
   top: 0;
@@ -164,11 +169,12 @@ export default {
 
 
 <style>
-.el-input.is-active .el-input__inner, .el-input__inner:focus{
-  border-color:black !important;
+.el-input.is-active .el-input__inner,
+.el-input__inner:focus {
+  border-color: black !important;
 }
-.el-input__inner{
-  border-radius:0px !important
+.el-input__inner {
+  border-radius: 0px !important;
 }
 .el-submenu__title {
   font-size: 12px !important;
