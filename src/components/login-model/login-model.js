@@ -48,17 +48,33 @@ export const loginModel = {
     methods: {
         closeDialog() {
             this.$emit('closeDialogData', this.dialogFormVisible)
-            console.log("dsabjhda")
         },
         handleClick() {
             // console.log(tab, event);
         },
-        onSubmit() {
+        onSubmitLogin() {
+            let param = {
+                name: this.loginForm.userName,
+                password: this.loginForm.password
+            }
+            if (this.loginForm.role === 'buyer') {
+                this.POST('/api/user/login', param).then(res => {
+                    this.$store.dispatch('setUserAuthToken',res.result.data)
+                    this.closeDialog()
+                }).catch(e => {
+                    console.log(e)
+                })
+            }
             this.loginForm = {
                 userName: '',
                 role: '',
                 password: ''
             }
+
+        },
+
+        onSubmitRegister() {
+
         }
     }
 }

@@ -10,21 +10,29 @@ export const homePage = {
     },
     data() {
         return {
-            activeIndex: '1',
             input: '',
             currentPath: this.$route.path,
             gridData: [],
             dialogFormVisible: false,
-            loginSatus:this.$store.getters.getUserAuthToken==""?false:true
+            loginSatus:false
         }
     },
     store,
+    computed:{
+        getUserAuthToken(){
+            return this.$store.getters.getUserAuthToken
+        }
+    },
     watch: {
         // 添加监听，手动改变activeIndex值，解决vue-router跳转，菜单仍然高亮的bug
         '$route'(to, from) {
             console.log(from)
-            this.$refs.menu.activeIndex = to.path
+            this.$refs.menu.currentPath = to.path
+        },
+        getUserAuthToken(val){
+            this.loginSatus = val==""?false:true
         }
+
     },
     created() {
 

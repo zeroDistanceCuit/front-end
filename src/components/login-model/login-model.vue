@@ -27,7 +27,7 @@
                 <el-input show-password v-model="loginForm.password"></el-input>
               </el-form-item>
               <el-form-item style="margin-left:-20%;margin-top:20%">
-                <el-button type="primary" @click="onSubmit">登录</el-button>
+                <el-button type="primary" @click="onSubmitLogin">登录</el-button>
                 <el-button style="margin-left:15%" @click="closeDialog">取消</el-button>
               </el-form-item>
             </el-form>
@@ -68,7 +68,7 @@
                 <el-input v-model="registerForm.shopName"></el-input>
               </el-form-item>
               <el-form-item style="margin-left:-20%;margin-top:-3%;">
-                <el-button type="primary" @click="onSubmit">注册</el-button>
+                <el-button type="primary" @click="onSubmitRegister">注册</el-button>
                 <el-button style="margin-left:15%" @click="closeDialog">取消</el-button>
               </el-form-item>
             </el-form>
