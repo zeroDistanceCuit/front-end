@@ -1,4 +1,5 @@
 export const loginModel = {
+    inject:['reload'],
     data() {
         var validatePass = (rule, value, callback) => {
             if (value === '') {
@@ -62,6 +63,7 @@ export const loginModel = {
                     this.$store.dispatch('setUserAuthToken',res.result.data)
                     let storage =window.localStorage
                     storage.setItem("token",res.result.data)
+                    this.reload()
                     this.closeDialog()
                 }).catch(e => {
                     console.log(e)

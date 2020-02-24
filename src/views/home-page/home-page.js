@@ -3,6 +3,7 @@ import Footer from "./components/footer/index.vue";
 import LoginDiaLog from '../../components/login-model/login-model.vue'
 import store from '../../store/user-auth/index'
 export const homePage = {
+    inject:['reload'],
     components: {
         "Nav": Nav,
         "Footer": Footer,
@@ -41,6 +42,7 @@ export const homePage = {
     methods: {
         openUserInfo(){
             localStorage.removeItem("token")
+            this.reload()
         },
         closeDialogData(dialogFormVisible) {
             this.dialogFormVisible = dialogFormVisible
