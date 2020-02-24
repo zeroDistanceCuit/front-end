@@ -25,8 +25,8 @@
 - [x] token与vuex相结合
 - [x] token与localStorage结合
 - [] https://juejin.im/post/5b55c118f265da0f6f1aa354#heading-10
-- [] 首页框架结构，需考虑后台入口的转化
-- [] 登录设置
+- [x] 首页框架结构，需考虑后台入口的转化
+- [] 登录设置,登录页面
 - [] 考虑分页和懒加载处理
 - [] 头像，图片文件放置及保存
 - [] threeJs模组

@@ -80,13 +80,13 @@
       <div class="nav-right">
         <el-input
           @keyup.enter.native="search($event)"
-          style="width:38%;margin-top:2%"
+          style="width:38%;margin-top:2%;color:black"
           v-model="input"
           suffix-icon="el-input__icon el-icon-search"
           placeholder="搜索"
         ></el-input>
 
-        <el-button type="text" style="color:#758bbc">登录</el-button>
+        <el-button type="text" style="color:#758bbc" @click="dialogFormVisible = true">登录</el-button>
         <el-button type="text" style="color:#758bbc">个人信息</el-button>
         <el-button plain style="color:#758bbc;border-radius:0px">
           <i style="color:black;font-size:18px" class="fa fa-shopping-bag" />&nbsp;&nbsp;您的购物车
@@ -97,9 +97,13 @@
           style="float:right;margin-top:1.6%;margin-right:4%;margin-left:-8%"
         />
       </div>
+
+      <!-- 登录窗口 -->
+      <el-dialog :visible.sync="dialogFormVisible">
+        <LoginDiaLog />
+      </el-dialog>
     </el-container>
-    <el-main style="width:100%;height:800px">
-      da's'da's
+    <el-main style="width:100%">
       <router-view></router-view>
     </el-main>
   </div>

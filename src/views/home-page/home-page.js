@@ -1,15 +1,19 @@
 import Nav from './components/nav/index.vue'
 import Footer from "./components/footer/index.vue";
+import LoginDiaLog from '../../components/login-model/login-model.vue'
 export const homePage = {
     components: {
         "Nav": Nav,
-        "Footer": Footer
+        "Footer": Footer,
+        "LoginDiaLog": LoginDiaLog
     },
     data() {
         return {
             activeIndex: '1',
             input: '',
-            currentPath: this.$route.path
+            currentPath: this.$route.path,
+            gridData: [],
+            dialogFormVisible: false,
         }
     },
     watch: {
