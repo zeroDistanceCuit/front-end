@@ -86,9 +86,18 @@
           placeholder="搜索"
         ></el-input>
 
-        <el-button type="text" style="color:#758bbc" @click="dialogFormVisible = true">登录</el-button>
-        <el-button type="text" style="color:#758bbc">个人信息</el-button>
-        <el-button plain style="color:#758bbc;border-radius:0px">
+        <el-button
+          type="text"
+          style="color:#758bbc;margin-left:2%"
+          @click="dialogFormVisible = true"
+          :style="{'display':(loginSatus?'none':'')}"
+        >登录</el-button>
+        <el-button
+          type="text"
+          style="color:#758bbc"
+          :style="{'display':(loginSatus?'':'none')}"
+        >个人信息</el-button>
+        <el-button plain style="color:#758bbc;border-radius:0px;margin-right:-10%;margin-left:2%" @click='openShopCart'>
           <i style="color:black;font-size:18px" class="fa fa-shopping-bag" />&nbsp;&nbsp;您的购物车
         </el-button>
 
@@ -100,7 +109,7 @@
 
       <!-- 登录窗口 -->
       <el-dialog :visible.sync="dialogFormVisible">
-        <LoginDiaLog v-on:closeDialogData='closeDialogData'/>
+        <LoginDiaLog v-on:closeDialogData="closeDialogData" />
       </el-dialog>
     </el-container>
     <el-main style="width:100%">

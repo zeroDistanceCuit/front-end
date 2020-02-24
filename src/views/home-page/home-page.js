@@ -1,6 +1,7 @@
 import Nav from './components/nav/index.vue'
 import Footer from "./components/footer/index.vue";
 import LoginDiaLog from '../../components/login-model/login-model.vue'
+import store from '../../store/user-auth/index'
 export const homePage = {
     components: {
         "Nav": Nav,
@@ -14,8 +15,10 @@ export const homePage = {
             currentPath: this.$route.path,
             gridData: [],
             dialogFormVisible: false,
+            loginSatus:this.$store.getters.getUserAuthToken==""?false:true
         }
     },
+    store,
     watch: {
         // 添加监听，手动改变activeIndex值，解决vue-router跳转，菜单仍然高亮的bug
         '$route'(to, from) {
@@ -30,15 +33,18 @@ export const homePage = {
     methods: {
         closeDialogData(dialogFormVisible){
             this.dialogFormVisible=dialogFormVisible
-            console.log(dialogFormVisible)
         },
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
         },
         search() {
             console.log(this.input)
+        },
+        openShopCart(){
+            if(!this.loginSatus){
+                this.dialogFormVisible=true
+            }
         }
-
     },
 
     mounted() {
