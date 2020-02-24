@@ -28,6 +28,10 @@ export const homePage = {
     },
 
     methods: {
+        closeDialogData(dialogFormVisible){
+            this.dialogFormVisible=dialogFormVisible
+            console.log(dialogFormVisible)
+        },
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
         },
