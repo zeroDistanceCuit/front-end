@@ -17,24 +17,13 @@ export default {
   methods: {
     handler() {
       console.log("dsjhaajhdns");
-      let params = {
-        name: "pangagou",
-        phone: "1383838438",
-        sex: "man",
-        password:"123456",
-        address: "宁夏甘肃"
-      };
-      // this.POST("/api/user/register", params).then(res=>{
-      //   console.log(res)
-      // }).catch(e=>{
-      //   console.log(e)
-      // })
+      
       // this.POST('/api/user/login',params).then(res=>{
       //   console.log(res)
       // }).catch(e=>{
       //   console.log(e)
       // })
-      this.GET('/api/test/findAll',params).then(res=>{
+      this.GET('/api/test/findAll').then(res=>{
         console.log(res)
       }).catch(e=>{
         console.log(e)

@@ -1,12 +1,14 @@
+import { Message } from "element-ui";
+
 export const loginModel = {
-    inject:['reload'],
+    inject: ['reload'],
     data() {
         var validatePass = (rule, value, callback) => {
             if (value === '') {
                 callback(new Error('请输入密码'));
             } else {
-                if (this.ruleForm.checkPass !== '') {
-                    this.$refs.ruleForm.validateField('checkPass');
+                if (this.registerForm.checkPass !== '') {
+                    this.$refs.registerForm.validateField('checkPass');
                 }
                 callback();
             }
@@ -14,7 +16,7 @@ export const loginModel = {
         var validatePass2 = (rule, value, callback) => {
             if (value === '') {
                 callback(new Error('请再次输入密码'));
-            } else if (value !== this.ruleForm.pass) {
+            } else if (value !== this.registerForm.pass) {
                 callback(new Error('两次输入密码不一致!'));
             } else {
                 callback();
@@ -60,10 +62,15 @@ export const loginModel = {
             }
             if (this.loginForm.role === 'buyer') {
                 this.POST('/api/user/login', param).then(res => {
-                    this.$store.dispatch('setUserAuthToken',res.result.data)
-                    let storage =window.localStorage
-                    storage.setItem("token",res.result.data)
+                    this.$store.dispatch('setUserAuthToken', res.result.data)
+                    let storage = window.localStorage
+                    storage.setItem("token", res.result.data)
                     this.reload()
+                    Message({
+                        message: res.message,
+                        duration: 2000,
+                        type: "success"
+                    })
                     this.closeDialog()
                 }).catch(e => {
                     console.log(e)
@@ -78,7 +85,23 @@ export const loginModel = {
         },
 
         onSubmitRegister() {
-
+            let params = {
+                name: this.registerForm.userName,
+                password: String(this.registerForm.pass),
+            };
+            if (this.registerForm.role === "buyer") {
+                params.sex = this.registerForm.sex
+                this.POST("/api/user/register", params).then(res => {
+                    Message({
+                        message: res.message,
+                        duration: 2000,
+                        type: "success"
+                    })
+                }).catch(e => {
+                    console.log(e)
+                })
+                this.closeDialog()
+            }
         }
     }
 }
