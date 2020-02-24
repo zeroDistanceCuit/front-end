@@ -14,14 +14,14 @@ export const homePage = {
             currentPath: this.$route.path,
             gridData: [],
             dialogFormVisible: false,
-            loginSatus:false
+            loginSatus: localStorage.getItem("token") == null?false:true
         }
     },
     store,
-    computed:{
-        getUserAuthToken(){
-            return this.$store.getters.getUserAuthToken
-        }
+    computed: {
+        // getUserAuthToken() {
+        //     return this.$store.getters.getUserAuthToken
+        // }
     },
     watch: {
         // 添加监听，手动改变activeIndex值，解决vue-router跳转，菜单仍然高亮的bug
@@ -29,9 +29,9 @@ export const homePage = {
             console.log(from)
             this.$refs.menu.currentPath = to.path
         },
-        getUserAuthToken(val){
-            this.loginSatus = val==""?false:true
-        }
+        // getUserAuthToken(val) {
+        //     this.loginSatus = val == "" ? false : true
+        // }
 
     },
     created() {
@@ -39,8 +39,11 @@ export const homePage = {
     },
 
     methods: {
-        closeDialogData(dialogFormVisible){
-            this.dialogFormVisible=dialogFormVisible
+        openUserInfo(){
+            localStorage.removeItem("token")
+        },
+        closeDialogData(dialogFormVisible) {
+            this.dialogFormVisible = dialogFormVisible
         },
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
@@ -48,14 +51,13 @@ export const homePage = {
         search() {
             console.log(this.input)
         },
-        openShopCart(){
-            if(!this.loginSatus){
-                this.dialogFormVisible=true
+        openShopCart() {
+            if (!this.loginSatus) {
+                this.dialogFormVisible = true
             }
         }
     },
 
     mounted() {
-
     }
 }

@@ -96,6 +96,7 @@
           type="text"
           style="color:#758bbc"
           :style="{'display':(loginSatus?'':'none')}"
+          @click="openUserInfo"
         >个人信息</el-button>
         <el-button plain style="color:#758bbc;border-radius:0px;margin-right:-10%;margin-left:2%" @click='openShopCart'>
           <i style="color:black;font-size:18px" class="fa fa-shopping-bag" />&nbsp;&nbsp;您的购物车

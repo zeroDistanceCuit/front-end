@@ -60,6 +60,8 @@ export const loginModel = {
             if (this.loginForm.role === 'buyer') {
                 this.POST('/api/user/login', param).then(res => {
                     this.$store.dispatch('setUserAuthToken',res.result.data)
+                    let storage =window.localStorage
+                    storage.setItem("token",res.result.data)
                     this.closeDialog()
                 }).catch(e => {
                     console.log(e)
