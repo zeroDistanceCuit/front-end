@@ -2,8 +2,9 @@ import Nav from './components/nav/index.vue'
 import Footer from "./components/footer/index.vue";
 import LoginDiaLog from '../../components/login-model/login-model.vue'
 import store from '../../store/user-auth/index'
+import { Message } from "element-ui";
 export const homePage = {
-    inject:['reload'],
+    inject: ['reload'],
     components: {
         "Nav": Nav,
         "Footer": Footer,
@@ -15,14 +16,12 @@ export const homePage = {
             currentPath: this.$route.path,
             gridData: [],
             dialogFormVisible: false,
-            loginSatus: localStorage.getItem("token") == null?false:true
+            // TODO 监听token值，变化样式
+            loginSatus: this.storage.getItem("token") == null ||this.storage.getItem("token") == "null" ? false : true
         }
     },
     store,
     computed: {
-        // getUserAuthToken() {
-        //     return this.$store.getters.getUserAuthToken
-        // }
     },
     watch: {
         // 添加监听，手动改变activeIndex值，解决vue-router跳转，菜单仍然高亮的bug
@@ -30,9 +29,6 @@ export const homePage = {
             console.log(from)
             this.$refs.menu.currentPath = to.path
         },
-        // getUserAuthToken(val) {
-        //     this.loginSatus = val == "" ? false : true
-        // }
 
     },
     created() {
@@ -40,8 +36,9 @@ export const homePage = {
     },
 
     methods: {
-        openUserInfo(){
-            localStorage.removeItem("token")
+        openUserInfo() {
+            // console.log("dsadjknas" + this.storage.getItem("token"))
+            this.storage.removeItem("token")
             this.reload()
         },
         closeDialogData(dialogFormVisible) {
@@ -54,8 +51,13 @@ export const homePage = {
             console.log(this.input)
         },
         openShopCart() {
+            Message({
+                message: "请先登录",
+                duration: 2000,
+                type: "info"
+            })
             if (!this.loginSatus) {
-                this.dialogFormVisible = true
+                // this.dialogFormVisible = true
             }
         }
     },

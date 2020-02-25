@@ -65,9 +65,10 @@ export const loginModel = {
                 this.POST('/api/user/login', param).then(res => {
                     // TODO 获取用户id并进行保存
                     this.$store.dispatch('setUserAuthToken', res.result.data)
-                    let storage = window.localStorage
-                    storage.setItem("token", res.result.data)
-                    storage.setItem("userId", res.userId)
+                    this.storage.setItem("token", res.result.data)
+                    this.storage.setItem("userId", res.userId)
+                    console.log(res.result.data)
+                    console.log()
                     this.reload()
                     Message({
                         message: res.result.message,
@@ -76,7 +77,32 @@ export const loginModel = {
                     })
                     this.closeDialog()
                 }).catch(e => {
-                    console.log(e)
+                    Message({
+                        message: e,
+                        duration: 2000,
+                        type: "error"
+                    })
+                })
+            } else {
+                this.POST('/api/bussiness/login', param).then(res => {
+                    // TODO 获取用户id并进行保存
+                    this.$store.dispatch('setUserAuthToken', res.result.data)
+                    this.storage = window.localthis.storage
+                    this.storage.setItem("token", res.result.data)
+                    this.storage.setItem("userId", res.userId)
+                    this.reload()
+                    Message({
+                        message: res.result.message,
+                        duration: 2000,
+                        type: "success"
+                    })
+                    this.closeDialog()
+                }).catch(e => {
+                    Message({
+                        message: e,
+                        duration: 2000,
+                        type: "error"
+                    })
                 })
             }
             // 清空表单
@@ -87,6 +113,7 @@ export const loginModel = {
             }
 
         },
+
         onSubmitRegister() {
             let params = {
                 name: this.registerForm.userName,
@@ -101,20 +128,38 @@ export const loginModel = {
                         type: "success"
                     })
                 }).catch(e => {
-                    console.log(e)
+                    Message({
+                        message: e,
+                        duration: 2000,
+                        type: "success"
+                    })
                 })
                 this.closeDialog()
             } else {
-                console.log("商家注册")
+                params.shopName = this.registerForm.shopName
+                this.POST("/api/bussiness/register", params).then(res => {
+                    Message({
+                        message: res.message,
+                        duration: 2000,
+                        type: "success"
+                    })
+                }).catch(e => {
+                    Message({
+                        message: e,
+                        duration: 2000,
+                        type: "error"
+                    })
+                })
+                this.closeDialog()
             }
-            this.registerForm = {
-                userName: '',
-                role: 'buyer',
-                pass: '',
-                checkPass: '',
-                sex: 'man',
-                shopName: ''
-            }
+            // this.registerForm = {
+            //     userName: '',
+            //     role: 'buyer',
+            //     pass: '',
+            //     checkPass: '',
+            //     sex: 'man',
+            //     shopName: ''
+            // }
         }
     }
 }

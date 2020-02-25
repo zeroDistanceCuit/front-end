@@ -13,6 +13,9 @@ Vue.prototype.POST=post
 
 Vue.use(ElementUI);
 
+let storage = window.localStorage
+Vue.prototype.storage=storage
+
 new Vue({
   router,
   // store,
