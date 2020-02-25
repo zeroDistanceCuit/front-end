@@ -120,6 +120,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { homePage } from "./home-page";
 export default {
   mixins: [homePage]

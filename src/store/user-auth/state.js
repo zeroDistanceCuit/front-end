@@ -1,6 +1,7 @@
 const state = {
     // 用户从后端获取的token
-    userAuthToken: ""
+    userAuthToken: "",
+    userId:""
 }
 
 export default state;

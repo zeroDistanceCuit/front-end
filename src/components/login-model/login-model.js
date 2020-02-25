@@ -1,5 +1,5 @@
 import { Message } from "element-ui";
-
+import store from "../../store/user-auth/index";
 export const loginModel = {
     inject: ['reload'],
     data() {
@@ -48,6 +48,7 @@ export const loginModel = {
             dialogFormVisible: false
         }
     },
+    store,
     methods: {
         closeDialog() {
             this.$emit('closeDialogData', this.dialogFormVisible)
@@ -62,12 +63,14 @@ export const loginModel = {
             }
             if (this.loginForm.role === 'buyer') {
                 this.POST('/api/user/login', param).then(res => {
+                    // TODO 获取用户id并进行保存
                     this.$store.dispatch('setUserAuthToken', res.result.data)
                     let storage = window.localStorage
                     storage.setItem("token", res.result.data)
+                    storage.setItem("userId", res.userId)
                     this.reload()
                     Message({
-                        message: res.message,
+                        message: res.result.message,
                         duration: 2000,
                         type: "success"
                     })
@@ -76,6 +79,7 @@ export const loginModel = {
                     console.log(e)
                 })
             }
+            // 清空表单
             this.loginForm = {
                 userName: '',
                 role: '',
@@ -83,7 +87,6 @@ export const loginModel = {
             }
 
         },
-
         onSubmitRegister() {
             let params = {
                 name: this.registerForm.userName,
@@ -101,6 +104,16 @@ export const loginModel = {
                     console.log(e)
                 })
                 this.closeDialog()
+            } else {
+                console.log("商家注册")
+            }
+            this.registerForm = {
+                userName: '',
+                role: 'buyer',
+                pass: '',
+                checkPass: '',
+                sex: 'man',
+                shopName: ''
             }
         }
     }
