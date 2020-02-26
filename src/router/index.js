@@ -23,6 +23,17 @@ const routes = [
       import('../components/login-model/login-model.vue')
     }]
   },
+  {
+    path:"/admin",
+    name:"Admin",
+    component:()=>
+    import('../views/admin-manage/admin-manage.vue'),
+    children:[{
+      path:'sellerInfo',
+      component:()=>
+      import('../views/seller-info/seller-info.vue')
+    }]
+  }
 
 ];
 
