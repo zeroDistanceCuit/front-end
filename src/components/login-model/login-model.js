@@ -57,6 +57,8 @@ export const loginModel = {
             // console.log(tab, event);
         },
         onSubmitLogin() {
+            // TODO 除了触发式动作用到配发事件，其他都需要考虑可持续化
+            this.storage.setItem("role", this.loginForm.role)
             let param = {
                 name: this.loginForm.userName,
                 password: this.loginForm.password
@@ -67,8 +69,7 @@ export const loginModel = {
                     this.$store.dispatch('setUserAuthToken', res.result.data)
                     this.storage.setItem("token", res.result.data)
                     this.storage.setItem("userId", res.userId)
-                    console.log(res.result.data)
-                    console.log()
+                    this.storage.setItem("role", this.loginForm.role)
                     this.reload()
                     Message({
                         message: res.result.message,
@@ -89,7 +90,6 @@ export const loginModel = {
                     this.$store.dispatch('setUserAuthToken', res.result.data)
                     this.storage.setItem("token", res.result.data)
                     this.storage.setItem("userId", res.userId)
-                    console.log(this.storage.getItem("token"))
                     this.reload()
                     Message({
                         message: res.result.message,

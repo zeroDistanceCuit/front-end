@@ -13,11 +13,12 @@ export const homePage = {
     data() {
         return {
             input: '',
+            loginRole: this.storage.getItem("role"),
             currentPath: this.$route.path,
             gridData: [],
             dialogFormVisible: false,
             // TODO 监听token值，变化样式
-            loginSatus: this.storage.getItem("token") == null ||this.storage.getItem("token") == "null" ? false : true
+            loginSatus: this.storage.getItem("token") == null || this.storage.getItem("token") == "null" ? false : true
         }
     },
     store,
@@ -38,7 +39,14 @@ export const homePage = {
     methods: {
         // 退出时讲store里的token重置and移除storage中的token
         openUserInfo() {
-            
+            // if (this.loginSatus && this.role === "buyer") {
+            //     // this.$route.push("/")
+            // }
+            console.log(this.loginSatus)
+            console.log(this.loginRole)
+            if (this.loginSatus && this.loginRole === "sell") {
+                this.$router.push("/admin")
+            }
         },
         closeDialogData(dialogFormVisible) {
             this.dialogFormVisible = dialogFormVisible

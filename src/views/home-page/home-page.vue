@@ -110,7 +110,7 @@
 
       <!-- 登录窗口 -->
       <el-dialog :visible.sync="dialogFormVisible">
-        <LoginDiaLog v-on:closeDialogData="closeDialogData" />
+        <LoginDiaLog v-on:closeDialogData="closeDialogData"/>
       </el-dialog>
     </el-container>
     <el-main style="width:100%">
