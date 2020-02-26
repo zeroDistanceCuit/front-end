@@ -42,8 +42,6 @@ export const homePage = {
             // if (this.loginSatus && this.role === "buyer") {
             //     // this.$route.push("/")
             // }
-            console.log(this.loginSatus)
-            console.log(this.loginRole)
             if (this.loginSatus && this.loginRole === "sell") {
                 this.$router.push("/admin")
             }
