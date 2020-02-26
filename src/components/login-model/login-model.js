@@ -87,9 +87,9 @@ export const loginModel = {
                 this.POST('/api/bussiness/login', param).then(res => {
                     // TODO 获取用户id并进行保存
                     this.$store.dispatch('setUserAuthToken', res.result.data)
-                    this.storage = window.localthis.storage
                     this.storage.setItem("token", res.result.data)
                     this.storage.setItem("userId", res.userId)
+                    console.log(this.storage.getItem("token"))
                     this.reload()
                     Message({
                         message: res.result.message,

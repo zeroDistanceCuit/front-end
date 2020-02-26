@@ -14,6 +14,10 @@ export default {
       input: ""
     };
   },
+  created(){
+this.handler()
+console.log(this.storage.getItem("token"))
+  },
 
   methods: {
     handler() {
@@ -24,8 +28,10 @@ export default {
       // }).catch(e=>{
       //   console.log(e)
       // })
-      this.GET('/api/test/findAll').then(res=>{
+      this.GET('/api/user/findAll').then(res=>{
         console.log(res)
+console.log(this.storage.getItem("token"))
+
       }).catch(e=>{
         console.log(e)
       })

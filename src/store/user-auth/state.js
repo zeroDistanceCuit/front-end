@@ -1,6 +1,6 @@
 const state = {
     // 用户从后端获取的token
-    userAuthToken: "",
+    userAuthToken:  window.localStorage.getItem("token"),
     userId:""
 }
 

@@ -61,10 +61,7 @@
             </el-row>
           </el-dialog>
           <el-dialog title="修改密码" width="450px" :visible.sync="dialogFormVisible">
-            <el-form :model="form">
-              <el-form-item label="原始密码">
-                <el-input v-model="form.pwd" autocomplete="off"></el-input>
-              </el-form-item>
+            <el-form style="width:80%;margin:20px auto" :model="form">
               <el-form-item label="修改后的密码">
                 <el-input v-model="form.newPwd" autocomplete="off"></el-input>
               </el-form-item>

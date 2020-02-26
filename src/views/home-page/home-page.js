@@ -36,10 +36,9 @@ export const homePage = {
     },
 
     methods: {
+        // 退出时讲store里的token重置and移除storage中的token
         openUserInfo() {
-            // console.log("dsadjknas" + this.storage.getItem("token"))
-            this.storage.removeItem("token")
-            this.reload()
+            
         },
         closeDialogData(dialogFormVisible) {
             this.dialogFormVisible = dialogFormVisible
