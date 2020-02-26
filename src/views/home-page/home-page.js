@@ -17,7 +17,6 @@ export const homePage = {
             currentPath: this.$route.path,
             gridData: [],
             dialogFormVisible: false,
-            // TODO 监听token值，变化样式
             loginSatus: this.storage.getItem("token") == null || this.storage.getItem("token") == "null" ? false : true
         }
     },

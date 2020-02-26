@@ -9,7 +9,6 @@ export const adminManage = {
       userId: this.storage.getItem('userId'),
       centerDialogVisible: false,
       menus: [],
-      // TODO 对于密码进行限制，只能为数字和字母
       form: {
         newPwd: null,
         newPwdAgain: null
@@ -32,11 +31,11 @@ export const adminManage = {
           name:"pangagou",
           password: this.form.newPwd,
         }
-        this.POST('/api/bussiness/updatePassW', body).then(res => {
+        this.POST("/api/bussiness/updatePassW/"+this.storage.getItem('userId'), body).then(res => {
           this.dialogFormVisible = false
           Message({
             showClose: true,
-            message: res.msg,
+            message: res.result.message,
             type: 'success',
             duration: 1000
           })

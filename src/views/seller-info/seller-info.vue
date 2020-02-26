@@ -20,7 +20,7 @@
           </el-col>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">商店名称：</span>{{role}}
+              <span class="fontStyle">商店名称：</span>{{shopName}}
             </div>
           </el-col>
           <el-col :span="10">
