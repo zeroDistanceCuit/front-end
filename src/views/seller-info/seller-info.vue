@@ -68,11 +68,11 @@
       <div>
           <!-- TODO 计算商家销售业绩 -->
         <el-table :data="tableData" stripe style="width: 100%">
-          <el-table-column prop="courseName" label="时间" width="200">
+          <el-table-column prop="time" label="时间" width="200">
           </el-table-column>
-          <el-table-column prop="credit" label="销售量">
+          <el-table-column prop="nums" label="销售量">
           </el-table-column>
-          <el-table-column prop="grade" label="成交金额">
+          <el-table-column prop="money" label="成交金额">
           </el-table-column>
         </el-table>
       </div>

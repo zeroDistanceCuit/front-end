@@ -6,12 +6,6 @@ export const sellerInfo = {
     return {
       username: null,
       shopName: null,
-      class: null,
-      tel: null,
-      stuNumber: null,
-      sex: null,
-      startDate: null,
-      studentId: null,
       tableData: []
     }
   },
