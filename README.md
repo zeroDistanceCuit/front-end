@@ -11,6 +11,8 @@
 - three.js
 - http://www.wytop.com/index.html#
 - https://hbx.com/cn
+- https://www.wandouip.com/t5i42856/
+- https://hujiulong.github.io/vue-3d-model/#/demo-rotate
 
 
 *** 任务列表 ***
