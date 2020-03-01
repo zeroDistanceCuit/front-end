@@ -16,7 +16,7 @@
             <span>商家管理页面</span>
           </el-menu-item>
           <el-menu-item v-for="(item,key) in menus" :key="key" :index="item.path">
-            <i :class="item.icon"></i>
+            <i :class="item.icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;
             <span style="display:inline-block;">{{item.name}}</span>
           </el-menu-item>
         </el-menu>

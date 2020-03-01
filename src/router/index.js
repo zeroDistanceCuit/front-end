@@ -36,6 +36,18 @@ const routes = [
       path:'sellerInfo',
       component:()=>
       import('../views/seller-info/seller-info.vue')
+    },{
+      path:'merchandiseManagement',
+      component:()=>
+      import('../views/merchandise-management/merchandise-management.vue')
+    },{
+      path:'salesManage',
+      component:()=>
+      import('../views/sales-manage/sales-manage.vue')
+    },{
+      path:'clientFeedback',
+      component:()=>
+      import('../views/client-feedback/client-feedback.vue')
     }]
   }
 

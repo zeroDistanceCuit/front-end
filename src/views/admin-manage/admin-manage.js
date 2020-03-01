@@ -86,6 +86,18 @@ export const adminManage = {
         name: '商家信息',
         path: '/admin/sellerInfo',
         icon: "fa fa-braille"
+      },{
+        name:'商品管理',
+        path:'/admin/merchandiseManagement',
+        icon:'fa fa-shopping-cart'
+      },{
+        name:'销量监控',
+        path:'/admin/salesManage',
+        icon:'fa fa-line-chart'
+      },{
+        name:'顾客反馈',
+        path:'/admin/clientFeedback',
+        icon:'fa fa-bullhorn'
       }]
       //   if (1==1){
       //       this.menus=[]
