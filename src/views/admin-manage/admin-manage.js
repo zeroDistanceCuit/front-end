@@ -69,7 +69,7 @@ export const adminManage = {
     exit() {
       this.storage.removeItem('userId')
       this.storage.removeItem('token')
-      this.reload()
+      this.storage.removeItem('role')
       this.$router.push({
         path: "/"
       })
