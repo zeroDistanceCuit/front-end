@@ -26,11 +26,11 @@
         v-model="input"
         clearable
       ></el-input>
-      <el-button type="primary" size="mini" style="margin-left:-20%" plain>查询</el-button>
+      <el-button type="primary" size="mini" style="margin-left:-20%" plain @click="search">查询</el-button>
       <div>
         <el-table :data="table1" max-height="400" border-top="1px solid black">
-          <el-table-column fixed="left" prop="name" label="商品名称" width="150"></el-table-column>
-          <el-table-column prop="type" label="类型" width="120"></el-table-column>
+          <el-table-column fixed="left" prop="Name" label="商品名称" width="150"></el-table-column>
+          <el-table-column prop="Type" label="类型" width="120"></el-table-column>
           <el-table-column fixed="right" label="操作" width="120">
             <template slot-scope="scope">
               <el-button @click.native.prevent="add(scope.row)" type="text" size="small">添加</el-button>
@@ -46,8 +46,8 @@
     <span style="float:left;color:blue">库存</span>
   </div>
           <el-table :data="table1" max-height="395">
-            <el-table-column fixed="left" prop="name" label="商品名称" width="150"></el-table-column>
-            <el-table-column prop="type" label="类型" width="120"></el-table-column>
+            <el-table-column fixed="left" prop="Name" label="商品名称" width="150"></el-table-column>
+            <el-table-column prop="Type" label="类型" width="120"></el-table-column>
             <el-table-column prop="nums" label="数量" width="100"></el-table-column>
             <el-table-column fixed="right" label="操作" width="120">
               <template slot-scope="scope">

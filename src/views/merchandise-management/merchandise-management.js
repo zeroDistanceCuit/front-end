@@ -21,39 +21,20 @@ export const merchandiseManagement = {
             input: '',
             nums: 0,
             dialogVisible: false,
-            table1: [{
-                id: 111,
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }, {
-                name: '王小虎',
-                type: "200333"
-            }],
+            table1: [],
             shopId: 0
         }
     },
     methods: {
+        search(){
+            // let param={
+            //     name:this.input
+            // }
+            this.GET('/api/shops/search?name='+this.input).then(res=>{
+                this.table1=res.result.data
+                console.log(res.result.data)
+            })
+        },
         add(row) {
             this.dialogVisible = true
             this.shopId = row.id
