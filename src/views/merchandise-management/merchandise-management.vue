@@ -39,12 +39,10 @@
         </el-table>
       </div>
       <div style="position:fixed;right:10%;top:15%">
-        <el-card 
-      shadow="never"
-        >
-        <div slot="header" class="clearfix">
-    <span style="float:left;color:blue">库存</span>
-  </div>
+        <el-card shadow="never">
+          <div slot="header" class="clearfix">
+            <span style="float:left;color:blue">库存</span>
+          </div>
           <el-table :data="table1" max-height="395">
             <el-table-column fixed="left" prop="Name" label="商品名称" width="150"></el-table-column>
             <el-table-column prop="Type" label="类型" width="120"></el-table-column>
@@ -69,6 +67,22 @@
         ></el-input-number>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="addAction">确 定</el-button>
+        </span>
+      </el-dialog>
+    </div>
+    <div>
+      <el-dialog :visible.sync="dialogDeleteVisible" width="30%">
+        <!-- TODO 需要捆绑数据 -->
+        <el-input-number
+          style="float:left;margin-top:2%;margin-left:5%;"
+          v-model="nums"
+          :min="1"
+          :max="10"
+          label="描述文字"
+        ></el-input-number>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogDeleteVisible = false">取 消</el-button>
           <el-button type="primary" @click="deleteAction">确 定</el-button>
         </span>
       </el-dialog>

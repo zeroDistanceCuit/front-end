@@ -26,7 +26,7 @@
 - [x] vue-cli@4的跨域出现问题，不能将请求方式传到后端
 - [x] token与vuex相结合
 - [x] token与localStorage结合
-- [] https://juejin.im/post/5b55c118f265da0f6f1aa354#heading-10
+- [] axios封装 https://juejin.im/post/5b55c118f265da0f6f1aa354#heading-10
 - [x] 首页框架结构，需考虑后台入口的x转化
 - [x] 登录设置,登录页面
 - [x] 实现前后端登录注册（用户，商家）
