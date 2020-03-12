@@ -20,18 +20,29 @@ export const merchandiseManagement = {
             }],
             value: '',
             input: '',
-            nums: 0,
+            nums: 1,
+            num2:0,
             dialogVisible: false,
             dialogDeleteVisible: false,
             table1: [],
+            table2: [],
             shopId: 0
         }
     },
+    created() {
+        this.hasAddShops()
+    },
     methods: {
-        // TODO 类型选择还没有完成
+        //  类型选择还没有完成
         search() {
             this.GET('/api/shops/search?name=' + this.input + '&type=' + this.value).then(res => {
                 this.table1 = res.result.data
+            }).catch(e=>{
+                Message({
+                    message: e,
+                    duration: 2000,
+                    type: "error"
+                })
             })
         },
         add(row) {
@@ -50,6 +61,8 @@ export const merchandiseManagement = {
                     duration: 2000,
                     type: "success"
                 })
+                this.hasAddShops()
+                this.nums=1
             }).catch(e => {
                 Message({
                     message: e,
@@ -59,12 +72,45 @@ export const merchandiseManagement = {
             })
             this.dialogVisible = false
         },
-        delete(row) {
-            this.shopId = row.id
+        hasAddShops() {
+            this.GET('/api/shops/searchByUserId?bussinessId=' + Number(this.storage.getItem("userId"))).then(res => {
+                this.table2 = res.result.data
+
+            }).catch(e=>{
+                Message({
+                    message: e,
+                    duration: 2000,
+                    type: "error"
+                })
+            })
+        },
+        update(row) {
+            this.shopId = row.Id
+            this.num2=row.Num
             this.dialogDeleteVisible = true
         },
-        deleteAction(id) {
-            console.log(id)
+        updateAction() {
+             let param = {
+                bussinessId: Number(this.storage.getItem("userId")),
+                goodsId: this.shopId,
+                nums: this.num2
+            }
+             this.POST('/api/shops/updateShops', param).then(res => {
+                Message({
+                    message: res.result.message,
+                    duration: 2000,
+                    type: "success"
+                })
+                this.hasAddShops()
+                this.nums=1
+            }).catch(e => {
+                Message({
+                    message: e,
+                    duration: 2000,
+                    type: "error"
+                })
+            })
+            this.dialogDeleteVisible = false
         }
     }
 }

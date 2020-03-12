@@ -30,7 +30,8 @@
       <div>
         <el-table :data="table1" max-height="400" border-top="1px solid black">
           <el-table-column fixed="left" prop="Name" label="商品名称" width="150"></el-table-column>
-          <el-table-column prop="Type" label="类型" width="120"></el-table-column>
+          <el-table-column prop="Type" label="类型" width="90"></el-table-column>
+          <el-table-column prop="Money" label="价格" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="120">
             <template slot-scope="scope">
               <el-button @click.native.prevent="add(scope.row)" type="text" size="small">添加</el-button>
@@ -38,18 +39,19 @@
           </el-table-column>
         </el-table>
       </div>
-      <div style="position:fixed;right:10%;top:15%">
+      <div style="position:fixed;right:5%;top:15%">
         <el-card shadow="never">
           <div slot="header" class="clearfix">
             <span style="float:left;color:blue">库存</span>
           </div>
-          <el-table :data="table1" max-height="395">
+          <el-table :data="table2" max-height="550">
             <el-table-column fixed="left" prop="Name" label="商品名称" width="150"></el-table-column>
             <el-table-column prop="Type" label="类型" width="120"></el-table-column>
-            <el-table-column prop="nums" label="数量" width="100"></el-table-column>
+            <el-table-column prop="Money" label="价格" width="100"></el-table-column>
+            <el-table-column prop="Num" label="数量" width="100"></el-table-column>
             <el-table-column fixed="right" label="操作" width="120">
               <template slot-scope="scope">
-                <el-button @click.native.prevent="delete(scope.row)" type="text" size="small">添加</el-button>
+                              <el-button @click.native.prevent="update(scope.row)" type="text" size="small">修改</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -62,7 +64,6 @@
           style="float:left;margin-top:2%;margin-left:5%;"
           v-model="nums"
           :min="1"
-          :max="10"
           label="描述文字"
         ></el-input-number>
         <span slot="footer" class="dialog-footer">
@@ -76,14 +77,13 @@
         <!-- TODO 需要捆绑数据 -->
         <el-input-number
           style="float:left;margin-top:2%;margin-left:5%;"
-          v-model="nums"
-          :min="1"
-          :max="10"
+          v-model="num2"
+          :min="0"
           label="描述文字"
         ></el-input-number>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogDeleteVisible = false">取 消</el-button>
-          <el-button type="primary" @click="deleteAction">确 定</el-button>
+          <el-button type="primary" @click="updateAction">确 定</el-button>
         </span>
       </el-dialog>
     </div>
