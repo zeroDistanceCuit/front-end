@@ -152,14 +152,14 @@ export const loginModel = {
                 })
                 this.closeDialog()
             }
-            // this.registerForm = {
-            //     userName: '',
-            //     role: 'buyer',
-            //     pass: '',
-            //     checkPass: '',
-            //     sex: 'man',
-            //     shopName: ''
-            // }
+            this.registerForm = {
+                userName: '',
+                role: 'buyer',
+                pass: '',
+                checkPass: '',
+                sex: 'man',
+                shopName: ''
+            }
         }
     }
 }
