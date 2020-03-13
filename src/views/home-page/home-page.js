@@ -36,6 +36,14 @@ export const homePage = {
     },
 
     methods: {
+        // TODO 未测试
+        // 默认主页
+        redirectMain(){
+            this.$router.push({
+                path:"/mainPage"
+            })
+            console.log(this.$route)
+        },
         // 退出时讲store里的token重置and移除storage中的token
         openUserInfo() {
             // if (this.loginSatus && this.role === "buyer") {

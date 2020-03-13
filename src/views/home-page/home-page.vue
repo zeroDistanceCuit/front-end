@@ -1,7 +1,7 @@
 <template>
   <div style="home-body">
     <el-container>
-      <div class="nav-demo">
+      <div v-on:click="redirectMain" class="nav-demo">
         <div class="img-block">
           <img class="img-logo" src="../../assets/logo.jpg" />
         </div>
@@ -113,8 +113,10 @@
         <LoginDiaLog v-on:closeDialogData="closeDialogData"/>
       </el-dialog>
     </el-container>
-    <el-main style="width:100%">
-      <div></div>
+    <div class="nav-header">
+        <div class="nav-header-font">消费满 RMB 2,300 包邮。不适用于部分产品。 <a href="#" color="black">详情见此。</a></div>
+      </div>
+    <el-main style="width:100%;padding:0">
       <router-view></router-view>
     </el-main>
   </div>
@@ -185,6 +187,19 @@ export default {
 
 
 <style>
+.nav-header-font{
+  line-height: 100px;
+  font-size: 14px;
+}
+.nav-header-font .el-link.el-link--default:hover{
+  color: black;
+}
+.nav-header{
+  margin-top:-1%;
+  height:70px;
+  width: 100%;
+  background-color: #f0f0f0;
+}
 .el-input.is-active .el-input__inner,
 .el-input__inner:focus {
   border-color: black !important;

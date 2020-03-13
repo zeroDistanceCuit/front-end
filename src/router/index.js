@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
+    redirect:'mainPage',
     name: "Home",
     component: homePage,
     children: [{
@@ -17,33 +18,37 @@ const routes = [
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/About.vue")
-    },{
-      path:'/three',
-      component:()=>
-      import('../components/three-model/three-model.vue')
+    }, {
+      path: '/three',
+      component: () =>
+        import('../components/three-model/three-model.vue')
+    }, {
+      path: '/mainPage',
+      component: () =>
+        import('../views/main-page/main-page.vue')
     }]
   },
   {
-    path:"/admin",
-    name:"Admin",
-    component:()=>
-    import('../views/admin-manage/admin-manage.vue'),
-    children:[{
-      path:'sellerInfo',
-      component:()=>
-      import('../views/seller-info/seller-info.vue')
-    },{
-      path:'merchandiseManagement',
-      component:()=>
-      import('../views/merchandise-management/merchandise-management.vue')
-    },{
-      path:'salesManage',
-      component:()=>
-      import('../views/sales-manage/sales-manage.vue')
-    },{
-      path:'clientFeedback',
-      component:()=>
-      import('../views/client-feedback/client-feedback.vue')
+    path: "/admin",
+    name: "Admin",
+    component: () =>
+      import('../views/admin-manage/admin-manage.vue'),
+    children: [{
+      path: 'sellerInfo',
+      component: () =>
+        import('../views/seller-info/seller-info.vue')
+    }, {
+      path: 'merchandiseManagement',
+      component: () =>
+        import('../views/merchandise-management/merchandise-management.vue')
+    }, {
+      path: 'salesManage',
+      component: () =>
+        import('../views/sales-manage/sales-manage.vue')
+    }, {
+      path: 'clientFeedback',
+      component: () =>
+        import('../views/client-feedback/client-feedback.vue')
     }]
   }
 
