@@ -14,17 +14,38 @@
         @select="handleSelect"
         text-color="#19241c"
       >
-        <el-menu-item index="/about">男装</el-menu-item>
+      <el-submenu index="1" style="margin-left:-15px">
+          <template slot="title">男装</template>
+          <el-submenu index="1-4">
+            <template slot="title">上衣</template>
+            <el-menu-item index="1-4-1">卫衣</el-menu-item>
+            <el-menu-item index="1-4-2">夹克</el-menu-item>
+            <el-menu-item index="1-4-3">T恤</el-menu-item>
+            <el-menu-item index="1-4-4">更多</el-menu-item>
+          </el-submenu>
+          <el-submenu index="1-5">
+            <template slot="title">裤装</template>
+            <el-menu-item index="1-5-1">休闲裤</el-menu-item>
+            <el-menu-item index="1-5-2">牛仔裤</el-menu-item>
+            <el-menu-item index="1-5-3">运动裤</el-menu-item>
+            <el-menu-item index="1-5-4">更多</el-menu-item>
+          </el-submenu>
+      </el-submenu>
         <el-submenu index="2" style="margin-left:-15px">
           <template slot="title">女装</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
           <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
+            <template slot="title">上衣</template>
+            <el-menu-item index="2-4-1">卫衣</el-menu-item>
+            <el-menu-item index="2-4-2">夹克</el-menu-item>
+            <el-menu-item index="2-4-3">T恤</el-menu-item>
+            <el-menu-item index="2-4-4">更多</el-menu-item>
+          </el-submenu>
+          <el-submenu index="2-5">
+            <template slot="title">裤装</template>
+            <el-menu-item index="2-5-1">休闲裤</el-menu-item>
+            <el-menu-item index="2-5-2">牛仔裤</el-menu-item>
+            <el-menu-item index="2-5-3">运动裤</el-menu-item>
+            <el-menu-item index="2-5-4">更多</el-menu-item>
           </el-submenu>
         </el-submenu>
         <el-submenu index="3" style="margin-left:-15px">
@@ -98,7 +119,11 @@
           :style="{'display':(loginSatus?'':'none')}"
           @click="openUserInfo"
         >个人信息</el-button>
-        <el-button plain style="color:#758bbc;border-radius:0px;margin-right:-10%;margin-left:2%" @click='openShopCart'>
+        <el-button
+          plain
+          style="color:#758bbc;border-radius:0px;margin-right:-10%;margin-left:2%"
+          @click="openShopCart"
+        >
           <i style="color:black;font-size:18px" class="fa fa-shopping-bag" />&nbsp;&nbsp;您的购物车
         </el-button>
 
@@ -110,12 +135,15 @@
 
       <!-- 登录窗口 -->
       <el-dialog :visible.sync="dialogFormVisible">
-        <LoginDiaLog v-on:closeDialogData="closeDialogData"/>
+        <LoginDiaLog v-on:closeDialogData="closeDialogData" />
       </el-dialog>
     </el-container>
     <div class="nav-header">
-        <div class="nav-header-font">消费满 RMB 2,300 包邮。不适用于部分产品。 <a href="#" color="black">详情见此。</a></div>
+      <div class="nav-header-font">
+        消费满 RMB 2,300 包邮。不适用于部分产品。
+        <a href="#" color="black">详情见此。</a>
       </div>
+    </div>
     <el-main style="width:100%;padding:0">
       <router-view></router-view>
     </el-main>
@@ -146,7 +174,7 @@ export default {
 .nav-demo {
   height: 9.5%;
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0px;
   background-color: white;
 }
@@ -187,16 +215,16 @@ export default {
 
 
 <style>
-.nav-header-font{
+.nav-header-font {
   line-height: 100px;
   font-size: 14px;
 }
-.nav-header-font .el-link.el-link--default:hover{
+.nav-header-font .el-link.el-link--default:hover {
   color: black;
 }
-.nav-header{
-  margin-top:-1%;
-  height:70px;
+.nav-header {
+  margin-top: -1%;
+  height: 70px;
   width: 100%;
   background-color: #f0f0f0;
 }

@@ -91,6 +91,9 @@ export const loginModel = {
                     this.storage.setItem("token", res.result.data)
                     this.storage.setItem("userId", res.userId)
                     this.reload()
+                    this.$router.push({
+                        path: "/admin"
+                    })
                     Message({
                         message: res.result.message,
                         duration: 2000,

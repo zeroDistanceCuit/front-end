@@ -24,11 +24,12 @@ export const homePage = {
     computed: {
     },
     watch: {
+        // TODO 未测试
         // 添加监听，手动改变activeIndex值，解决vue-router跳转，菜单仍然高亮的bug
-        '$route'(to, from) {
-            console.log(from)
-            this.$refs.menu.currentPath = to.path
-        },
+        // '$route'(to, from) {
+        //     console.log(from)
+        //     this.$refs.menu.currentPath = to.path
+        // },
 
     },
     created() {
