@@ -60,8 +60,23 @@ export const homePage = {
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
         },
+        // TODO 控制不能为空
         search() {
-            console.log(this.input)
+            if(this.input!=null){
+                let param={
+                    name:this.input
+                }
+                this.GET('/api/shops/searchByShopName',param).then(res=>{
+                    console.log(res)
+                })
+            }else{
+                Message({
+                message: "请输入搜索内容",
+                duration: 2000,
+                type: "info"
+            })
+            }
+            
         },
         openShopCart() {
             Message({

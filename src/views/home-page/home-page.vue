@@ -20,7 +20,7 @@
             <template slot="title">上衣</template>
             <el-menu-item index="1-4-1">卫衣</el-menu-item>
             <el-menu-item index="1-4-2">夹克</el-menu-item>
-            <el-menu-item index="1-4-3">T恤</el-menu-item>
+            <el-menu-item index="/shopInfo/T-shirt">T恤</el-menu-item>
             <el-menu-item index="1-4-4">更多</el-menu-item>
           </el-submenu>
           <el-submenu index="1-5">

@@ -3,7 +3,7 @@ export const merchandiseManagement = {
     data() {
         return {
             options: [{
-                value: 't-shirt',
+                value: 'T-shirt',
                 label: 'T裇'
             }, {
                 value: 'insert',
