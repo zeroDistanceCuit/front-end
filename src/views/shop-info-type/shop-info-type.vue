@@ -21,6 +21,7 @@
       style="width: 100px; height: 100px"
       v-bind:src="item.Goods.Img"
       />
+      <!-- TODO 为遍历渲染出来 -->
       {{item.Goods.Img}}
         </div>
       </div>
