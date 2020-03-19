@@ -2,6 +2,7 @@ import Nav from './components/nav/index.vue'
 import Footer from "./components/footer/index.vue";
 import LoginDiaLog from '../../components/login-model/login-model.vue'
 import store from '../../store/user-auth/index'
+// import storeShop from "@/store/shops/index";
 import { Message } from "element-ui";
 export const homePage = {
     inject: ['reload'],
@@ -67,7 +68,7 @@ export const homePage = {
                     name:this.input
                 }
                 this.GET('/api/shops/searchByShopName',param).then(res=>{
-                    console.log(res)
+                    this.$store.dispatch('setShops',res.result.data)
                 })
             }else{
                 Message({

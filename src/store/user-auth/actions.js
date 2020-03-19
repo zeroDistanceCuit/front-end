@@ -4,6 +4,9 @@ const actions = {
     },
     setUserId({ state }, value) {
         state.userId = value
+    },
+    setShops({ state }, value) {
+        state.shops = value
     }
 }
 

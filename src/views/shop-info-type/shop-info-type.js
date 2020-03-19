@@ -1,13 +1,27 @@
+import store from "@/store/user-auth/index";
 export const shopInfoType = {
     props: {
         shopType: {
-            type: String,
-            default: 'Vue!'
+            type: String
         }
     },
     data() {
         return {
-            btnFlag:false
+            btnFlag: false,
+            money1: 0,
+            money2: 0,
+            shopName: "",
+            shopsList:[]
+        }
+    },
+    store,
+    watch: {
+        '$store.getters.getShops': {
+            handler(cur, old) {
+                if (cur != old) {
+                    this.getShopsList(cur)
+                }
+            }
         }
     },
     methods: {
@@ -33,6 +47,9 @@ export const shopInfoType = {
             } else {
                 that.btnFlag = false
             }
+        },
+        getShopsList(shops){
+            this.shopsList=shops
         }
     },
     mounted() {

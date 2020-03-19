@@ -1,5 +1,5 @@
 const actions = {
-    // setUserId({ state }) {
+    // setUserId({ state },value) {
     //     state.userId = value
     // }
 }

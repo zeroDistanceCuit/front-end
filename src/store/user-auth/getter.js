@@ -4,6 +4,9 @@ const getters = {
     },
     getUserId(state){
         return state.userId
+    },
+    getShops(state){
+        return state.shops
     }
 }
 
