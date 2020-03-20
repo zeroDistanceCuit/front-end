@@ -44,7 +44,6 @@ export const homePage = {
             this.$router.push({
                 path:"/mainPage"
             })
-            console.log(this.$route)
         },
         // 退出时讲store里的token重置and移除storage中的token
         openUserInfo() {
@@ -61,14 +60,16 @@ export const homePage = {
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
         },
-        // TODO 控制不能为空
+
+        // TODO 控制不能为空,也不能为空格
+        // TODO 主页搜索自动调转
         search() {
             if(this.input!=null){
-                let param={
-                    name:this.input
-                }
-                this.GET('/api/shops/searchByShopName',param).then(res=>{
+                this.GET('/api/shops/searchByShopName?name='+this.input).then(res=>{
                     this.$store.dispatch('setShops',res.result.data)
+                    this.$router.push({
+                        path:'/shopInfo/type'
+                    })
                 })
             }else{
                 Message({

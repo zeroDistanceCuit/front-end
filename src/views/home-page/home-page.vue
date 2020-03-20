@@ -16,7 +16,7 @@
       >
       <el-submenu index="1" style="margin-left:-15px">
           <template slot="title">男装</template>
-          <el-submenu index="1-4">
+          <el-submenu index="man">
             <template slot="title">上衣</template>
             <el-menu-item index="1-4-1">卫衣</el-menu-item>
             <el-menu-item index="1-4-2">夹克</el-menu-item>

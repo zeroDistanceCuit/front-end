@@ -11,7 +11,8 @@ export const shopInfoType = {
             money1: 0,
             money2: 0,
             shopName: "",
-            shopsList:[]
+            shopsList: [],
+            // menu:this.$router
         }
     },
     store,
@@ -25,6 +26,13 @@ export const shopInfoType = {
         }
     },
     methods: {
+        // 跳转详情页面
+        openShopInfo(shop) {
+            this.$store.dispatch('setShopInfo', shop)
+            this.$router.push({
+                path: '/shopInfor'
+            })
+        },
         // 点击图片回到顶部方法，加计时器是为了过渡顺滑
         backTop() {
             const that = this
@@ -48,12 +56,28 @@ export const shopInfoType = {
                 that.btnFlag = false
             }
         },
-        getShopsList(shops){
-            this.shopsList=shops
+        // 通过搜索框获取信息
+        getShopsList(shops) {
+            this.shopsList = shops
+        },
+        reloadImg(shops) {
+            shops.forEach(item => {
+                item.Goods.Img = "require(`" + item.Goods.Img + "`)"
+            });
+        },
+        // 根据类型获取，
+        getShopList() {
+            this.GET('/api//shops/searchByType?type=' + this.shopType).then(res => {
+                this.shopsList=res.result.data
+            })
         }
+
     },
     mounted() {
         window.addEventListener('scroll', this.scrollToTop)
+         if(this.shopType != "type"){
+            this.getShopList()
+        }
     },
     destroyed() {
         window.removeEventListener('scroll', this.scrollToTop)

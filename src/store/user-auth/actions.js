@@ -7,6 +7,9 @@ const actions = {
     },
     setShops({ state }, value) {
         state.shops = value
+    },
+    setShopInfo({ state }, value) {
+        state.shopInfo = value
     }
 }
 

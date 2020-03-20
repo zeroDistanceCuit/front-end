@@ -3,7 +3,7 @@
     <div class="block">
       <el-carousel style="width:80%;margin:0 auto" height="450px">
         <el-carousel-item v-for="item in lunboData" :key="item.id">
-          <el-image v-on:click="shopInfo(item2)" :src="item.img" fit="contain"></el-image>
+          <el-image v-on:click="shopInfo()" :src="item.img" fit="contain"></el-image>
         </el-carousel-item>
       </el-carousel>
     </div>

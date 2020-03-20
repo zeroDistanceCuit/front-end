@@ -1,7 +1,6 @@
 const actions = {
     setShops({ state },value) {
-        console.log(value)
-        state.shops = value
+        state.shopsInfo = value
     }
 }
 

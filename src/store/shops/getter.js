@@ -1,6 +1,6 @@
 const getters = {
     getShops(state){
-        return state.shops
+        return state.shopsInfo
     }
 }
 

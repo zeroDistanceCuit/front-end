@@ -7,6 +7,9 @@ const getters = {
     },
     getShops(state){
         return state.shops
+    },
+    getShopInfo(state){
+        return state.shopInfo
     }
 }
 

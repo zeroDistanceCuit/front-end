@@ -24,6 +24,12 @@ const routes = [
       props: true ,
       component:()=>
       import('@/views/shop-info-type/shop-info-type.vue')
+    },{
+      path:'/shopInfor',
+      name:"商品详情页面",
+      props: true ,
+      component:()=>
+      import('@/views/shop-info/shop-info.vue')
     }]
   },
   {
