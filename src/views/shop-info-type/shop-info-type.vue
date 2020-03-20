@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- TODO 返回顶部，未测试 -->
-    <!-- <img v-if="btnFlag" class="go-top" src="图片url" @click="backTop"> -->
+    <img v-if="btnFlag" class="go-top" src="../../assets/top.jpg" @click="backTop">
   </div>
 </template>
 <script>
@@ -52,6 +52,11 @@ export default {
 
 
 <style scoped>
+.go-top{
+  position: fixed;
+  bottom: 5%;
+  right: 7%;
+}
 .filter {
   position: absolute;
   right: 10%;
