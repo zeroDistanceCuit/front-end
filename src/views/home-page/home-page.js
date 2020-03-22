@@ -40,18 +40,19 @@ export const homePage = {
     methods: {
         // TODO 未测试
         // 默认主页
-        redirectMain(){
+        redirectMain() {
             this.$router.push({
-                path:"/mainPage"
+                path: "/mainPage"
             })
         },
         // 退出时讲store里的token重置and移除storage中的token
-        openUserInfo() {
-            // if (this.loginSatus && this.role === "buyer") {
-            //     // this.$route.push("/")
-            // }
-            if (this.loginSatus && this.loginRole === "sell") {
-                this.$router.push("/admin")
+        logout() {
+            if (this.loginSatus && this.loginRole === "buyer") {
+                console.log("logout")
+                this.storage.removeItem('userId')
+                this.storage.removeItem('token')
+                this.storage.removeItem('role')
+                this.reload()
             }
         },
         closeDialogData(dialogFormVisible) {
@@ -64,22 +65,22 @@ export const homePage = {
         // TODO 控制不能为空,也不能为空格
         // TODO 主页搜索自动调转
         search() {
-            if(this.input!=null){
-                this.GET('/api/shops/searchByShopName?name='+this.input).then(res=>{
-                    this.$store.dispatch('setShops',res.result.data)
+            if (this.input != null) {
+                this.GET('/api/shops/searchByShopName?name=' + this.input).then(res => {
+                    this.$store.dispatch('setShops', res.result.data)
                     this.$router.push({
-                        path:'/shopInfo/type'
+                        path: '/shopInfo/type'
                     })
-                    this.input=""
+                    this.input = ""
                 })
-            }else{
+            } else {
                 Message({
-                message: "请输入搜索内容",
-                duration: 2000,
-                type: "info"
-            })
+                    message: "请输入搜索内容",
+                    duration: 2000,
+                    type: "info"
+                })
             }
-            
+
         },
         openShopCart() {
             Message({

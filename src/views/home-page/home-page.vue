@@ -117,8 +117,8 @@
           type="text"
           style="color:#758bbc"
           :style="{'display':(loginSatus?'':'none')}"
-          @click="openUserInfo"
-        >个人信息</el-button>
+          @click="logout"
+        >用户【退出】</el-button>
         <el-button
           plain
           style="color:#758bbc;border-radius:0px;margin-right:-10%;margin-left:2%"

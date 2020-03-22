@@ -69,7 +69,6 @@ export const loginModel = {
                     this.$store.dispatch('setUserAuthToken', res.result.data)
                     this.storage.setItem("token", res.result.data)
                     this.storage.setItem("userId", res.userId)
-                    this.storage.setItem("role", this.loginForm.role)
                     this.reload()
                     Message({
                         message: res.result.message,
