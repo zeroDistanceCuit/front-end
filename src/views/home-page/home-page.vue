@@ -121,7 +121,7 @@
         >用户【退出】</el-button>
         <el-button
           plain
-          style="color:#758bbc;border-radius:0px;margin-right:-10%;margin-left:2%"
+          style="color:#758bbc;border-radius:0px;margin-right:-5%;margin-left:2%"
           @click="openShopCart"
         >
           <i style="color:black;font-size:18px" class="fa fa-shopping-bag" />&nbsp;&nbsp;您的购物车
@@ -173,7 +173,7 @@ export default {
 }
 .nav-demo {
   height: 9.5%;
-  width: 100%;
+  width: 99%;
   position: absolute;
   top: 0px;
   background-color: white;

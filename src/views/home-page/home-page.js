@@ -48,7 +48,9 @@ export const homePage = {
         // 退出时讲store里的token重置and移除storage中的token
         logout() {
             if (this.loginSatus && this.loginRole === "buyer") {
-                console.log("logout")
+                this.$router.push({
+                        path: '/'
+                    })
                 this.storage.removeItem('userId')
                 this.storage.removeItem('token')
                 this.storage.removeItem('role')
@@ -83,13 +85,16 @@ export const homePage = {
 
         },
         openShopCart() {
-            Message({
+            if (!this.loginSatus || this.loginRole != "buyer") {
+                Message({
                 message: "请先登录",
                 duration: 2000,
                 type: "info"
             })
-            if (!this.loginSatus) {
-                // this.dialogFormVisible = true
+            }else{
+                this.$router.push({
+                    path:'/user'
+                })
             }
         }
     },

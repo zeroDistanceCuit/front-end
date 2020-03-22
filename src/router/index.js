@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect:'mainPage',
+    redirect: 'mainPage',
     name: "Home",
     component: homePage,
     children: [{
@@ -18,18 +18,28 @@ const routes = [
       path: '/mainPage',
       component: () =>
         import('../views/main-page/main-page.vue')
+    }, {
+      path: '/shopInfo/:shopType',
+      name: "商品页面，根据类型区分",
+      props: true,
+      component: () =>
+        import('@/views/shop-info-type/shop-info-type.vue')
+    }, {
+      path: '/shopInfor',
+      name: "商品详情页面",
+      props: true,
+      component: () =>
+        import('@/views/shop-info/shop-info.vue')
     },{
-      path:'/shopInfo/:shopType',
-      name:"商品页面，根据类型区分",
-      props: true ,
+      path:'/user',
+      props:true,
       component:()=>
-      import('@/views/shop-info-type/shop-info-type.vue')
-    },{
-      path:'/shopInfor',
-      name:"商品详情页面",
-      props: true ,
-      component:()=>
-      import('@/views/shop-info/shop-info.vue')
+      import('@/views/user-admin/user-admin.vue'),
+      children:[{
+        path:'/self',
+        component:()=>
+        import('@/views/user-self/user-self.vue')
+      }]
     }]
   },
   {
