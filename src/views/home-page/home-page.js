@@ -70,6 +70,7 @@ export const homePage = {
                     this.$router.push({
                         path:'/shopInfo/type'
                     })
+                    this.input=""
                 })
             }else{
                 Message({
