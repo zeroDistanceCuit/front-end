@@ -67,7 +67,7 @@ export const shopInfoType = {
         },
         // 根据类型获取，
         getShopList() {
-            this.GET('/api//shops/searchByType?type=' + this.shopType).then(res => {
+            this.GET('/api/shops/searchByType?type=' + this.shopType).then(res => {
                 this.shopsList=res.result.data
             })
         }

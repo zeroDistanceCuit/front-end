@@ -24,8 +24,23 @@ export const shopInfo = {
             }
         },
         // TODO 
-        addCart(){
-
+        addCart() {
+            let time=new Date(); 
+            let param = {
+                userId: Number(this.storage.getItem('userId')),
+                num:this.num,
+                shopsId:this.shopInfo.Id,
+                bussinessId:this.shopInfo.Bussiness.Id,
+                status:"onGoing",
+                time:time.getFullYear()+"-"+time.getMonth()+"-"+time.getDate()
+            }
+            this.POST("/api/cart/add",param).then(res=>{
+               Message({
+                        message: res.result.message,
+                        duration: 2000,
+                        type: "info"
+                    })
+            })
         }
     },
     mounted() {

@@ -41,14 +41,14 @@
               </span>
             </div>
           </el-menu-item>
-          <el-menu-item>
+          <el-menu-item index="/cart">
               <div style="width:230px;background:#f8f8f8;height:60px;text-align:left">
               <span slot="title" style="font-size:14px;display:inline-block;margin-left:10px">
                 <span style="display:inline-block;margin-left:25px">我的购物车</span>
               </span>
             </div>
           </el-menu-item>
-          <el-menu-item>
+          <el-menu-item index="/order">
               <div style="width:230px;background:#f8f8f8;height:60px;text-align:left">
               <span slot="title" style="font-size:14px;display:inline-block;margin-left:10px">
                 <span style="display:inline-block;margin-left:25px">我的订单</span>

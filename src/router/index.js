@@ -39,6 +39,14 @@ const routes = [
         path:'/self',
         component:()=>
         import('@/views/user-self/user-self.vue')
+      },{
+        path:'/order',
+        component:()=>
+        import('@/views/shop-order/shop-order.vue')
+      },{
+        path:'/cart',
+        component:()=>
+        import('@/views/shop-cart/shop-cart.vue')
       }]
     }]
   },
