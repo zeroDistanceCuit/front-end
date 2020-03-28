@@ -44,7 +44,7 @@
           <div slot="header" class="clearfix">
             <span style="float:left;color:blue">库存</span>
           </div>
-          <el-table :data="table2" max-height="550">
+          <el-table :data="table2" max-height="400" style="margin-top:-20px">
             <el-table-column fixed="left" prop="Name" label="商品名称" width="150"></el-table-column>
             <el-table-column prop="Type" label="类型" width="120"></el-table-column>
             <el-table-column prop="Money" label="价格" width="100"></el-table-column>

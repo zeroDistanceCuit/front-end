@@ -55,6 +55,12 @@ export const homePage = {
                 this.storage.removeItem('token')
                 this.storage.removeItem('role')
                 this.reload()
+            }else{
+                 Message({
+                    message: "商家未退出",
+                    duration: 2000,
+                    type: "info"
+                })
             }
         },
         closeDialogData(dialogFormVisible) {

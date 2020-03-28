@@ -28,6 +28,19 @@ export const sellerInfo = {
       })
     },
     getCourseGradeById() {
+      this.GET('/api/cart/search?bussinessId=' + this.storage.getItem('userId') + "&status=finish&userId=0").then(res => {
+        let data = res.result.data
+        for (let i = 0; i < data.length; i++) {
+          let sum = 0
+          // let money = 0
+          for (let j = i + 1; j < data.length - i; j++) {
+            if (data[i].Time == data[j].Time) {
+              sum += data[j].Num
+              // TODO
+            }
+          }
+        }
+      })
       //   let userId=null
       //   if(flag){
       //     userId = this.studentId
@@ -43,6 +56,7 @@ export const sellerInfo = {
     }
   },
   mounted() {
-this.getPersonalInfo()
-   }
+    this.getPersonalInfo()
+    this.getCourseGradeById()
+  }
 }

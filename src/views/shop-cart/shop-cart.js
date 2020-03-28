@@ -16,9 +16,12 @@ export const shopCart = {
             this.num = $event
         },
         finishPay(index,item) {
+            console.log(item)
             let time = new Date()
             let param = {
                 id: item.Id,
+                userId:item.UserId,
+                bussinessId:item.BussinessId,
                 shopsId: item.Shops.Id,
                 status: "finish",
                 time: time.getFullYear() + "-" + time.getMonth() + "-" + time.getDate(),
