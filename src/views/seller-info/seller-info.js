@@ -56,8 +56,6 @@ export const sellerInfo = {
             money:"￥ "+money
           })
         })
-        console.log(this.tableData)
-
       })
     }
   },

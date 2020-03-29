@@ -55,13 +55,7 @@ export const homePage = {
                 this.storage.removeItem('token')
                 this.storage.removeItem('role')
                 this.reload()
-            }else{
-                 Message({
-                    message: "商家未退出",
-                    duration: 2000,
-                    type: "info"
-                })
-            }
+            } 
         },
         closeDialogData(dialogFormVisible) {
             this.dialogFormVisible = dialogFormVisible
@@ -106,5 +100,10 @@ export const homePage = {
     },
 
     mounted() {
+        if(this.loginSatus && this.loginRole === "sell"){
+           this.$router.push({
+               path:"/admin"
+           })
+        }
     }
 }
