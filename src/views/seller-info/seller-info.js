@@ -30,29 +30,35 @@ export const sellerInfo = {
     getCourseGradeById() {
       this.GET('/api/cart/search?bussinessId=' + this.storage.getItem('userId') + "&status=finish&userId=0").then(res => {
         let data = res.result.data
-        for (let i = 0; i < data.length; i++) {
-          let sum = 0
-          // let money = 0
-          for (let j = i + 1; j < data.length - i; j++) {
-            if (data[i].Time == data[j].Time) {
-              sum += data[j].Num
-              // TODO
+
+        // 先取出对象数组的index属性的值，然后根据该值进行操作
+        let time = []
+        data.forEach(item => {
+          time.push(item.Time)
+        })
+        let newTime = time.filter(function (item, index, array) {
+          return array.indexOf(item) === index;
+        })
+        // 
+
+        newTime.forEach(item=>{
+          let sum=0
+          let money=0
+          data.forEach(it=>{
+            if(it.Time==item){
+              sum+=it.Num
+              money+=Number(it.Shops.Goods.Money)
             }
-          }
-        }
+          })
+          this.tableData.push({
+            time:item,
+            sum:sum+" 件",
+            money:"￥ "+money
+          })
+        })
+        console.log(this.tableData)
+
       })
-      //   let userId=null
-      //   if(flag){
-      //     userId = this.studentId
-      //   }else{
-      //     userId = parseInt(localStorage.getItem('userId'))
-      //   }
-      //   let param = {
-      //     studentId: userId
-      //   }
-      //   this.get('/api/userCourse/selectCourseByStudentId',param).then(res=>{
-      //     this.tableData=res.data
-      //   })
     }
   },
   mounted() {
