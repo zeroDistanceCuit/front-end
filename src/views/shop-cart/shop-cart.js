@@ -16,7 +16,6 @@ export const shopCart = {
             this.num = $event
         },
         finishPay(index,item) {
-            console.log(item)
             let time = new Date()
             let param = {
                 id: item.Id,
@@ -24,9 +23,9 @@ export const shopCart = {
                 bussinessId:item.BussinessId,
                 shopsId: item.Shops.Id,
                 status: "finish",
-                time: time.getFullYear() + "-" + time.getMonth() + "-" + time.getDate(),
                 num: item.Num,
-                order: JSON.stringify(Date.parse(time))
+                order: JSON.stringify(Date.parse(time)),
+                time:time.getFullYear()+"-"+JSON.stringify(Number(time.getMonth())+1)+"-"+time.getDate()
             }
             this.POST('/api/cart/order', param).then(res => {
                 Message({

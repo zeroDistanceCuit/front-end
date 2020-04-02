@@ -32,7 +32,7 @@ export const shopInfo = {
                 shopsId:this.shopInfo.Id,
                 bussinessId:this.shopInfo.Bussiness.Id,
                 status:"onGoing",
-                time:time.getFullYear()+"-"+time.getMonth()+"-"+time.getDate()
+                time:time.getFullYear()+"-"+JSON.stringify(Number(time.getMonth())+1)+"-"+time.getDate()
             }
             this.POST("/api/cart/add",param).then(res=>{
                Message({
