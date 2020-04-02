@@ -10,11 +10,13 @@ const routes = [
     redirect: 'mainPage',
     name: "Home",
     component: homePage,
-    children: [{
+    children: [
+      {
       path: '/three',
       component: () =>
         import('../components/three-model/three-model.vue')
-    }, {
+    },
+     {
       path: '/mainPage',
       component: () =>
         import('../views/main-page/main-page.vue')

@@ -1,23 +1,15 @@
 <template>
-  <div>
-    <model-obj src="/static/Shirley.obj" mtl="/static/Shirley.mtl"></model-obj>
-  </div>
+    <model-gltf src="static/models/sunxin/glTF/body.gltf"></model-gltf>
 </template>
 
 <script>
-import { ModelObj } from "vue-3d-model";
-export default {
-  components: {
-    ModelObj
-  } 
-};
-</script>
+    import { ModelGltf } from 'vue-3d-model'
 
+    export default {
+        components: {
+            ModelGltf
+        }
+    }
+</script>
 <style>
-#container {
-  width: 1200px;
-  margin: 0 auto;
-  height: 800px;
-  overflow: hidden;
-}
 </style>
