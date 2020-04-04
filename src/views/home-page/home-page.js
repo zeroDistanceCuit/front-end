@@ -49,13 +49,13 @@ export const homePage = {
         logout() {
             if (this.loginSatus && this.loginRole === "buyer") {
                 this.$router.push({
-                        path: '/'
-                    })
+                    path: '/'
+                })
                 this.storage.removeItem('userId')
                 this.storage.removeItem('token')
                 this.storage.removeItem('role')
                 this.reload()
-            } 
+            }
         },
         closeDialogData(dialogFormVisible) {
             this.dialogFormVisible = dialogFormVisible
@@ -67,14 +67,14 @@ export const homePage = {
         // TODO 控制不能为空,也不能为空格
         // TODO 主页搜索自动调转
         search() {
-            if (this.input != null) {
-                this.GET('/api/shops/searchByShopName?name=' + this.input).then(res => {
-                    this.$store.dispatch('setShops', res.result.data)
-                    this.$router.push({
-                        path: '/shopInfo/type'
-                    })
-                    this.input = ""
+            if (this.input != null &&this.input !="") {
+                this.$router.push({
+                    path: '/shopInfo/type',
+                    query: {
+                        q: this.input
+                    }
                 })
+                this.input = ""
             } else {
                 Message({
                     message: "请输入搜索内容",
@@ -87,23 +87,23 @@ export const homePage = {
         openShopCart() {
             if (!this.loginSatus || this.loginRole != "buyer") {
                 Message({
-                message: "请先登录",
-                duration: 2000,
-                type: "info"
-            })
-            }else{
+                    message: "请先登录",
+                    duration: 2000,
+                    type: "info"
+                })
+            } else {
                 this.$router.push({
-                    path:'/user'
+                    path: '/user'
                 })
             }
         }
     },
 
     mounted() {
-        if(this.loginSatus && this.loginRole === "sell"){
-           this.$router.push({
-               path:"/admin"
-           })
+        if (this.loginSatus && this.loginRole === "sell") {
+            this.$router.push({
+                path: "/admin"
+            })
         }
     }
 }

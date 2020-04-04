@@ -1,5 +1,5 @@
 <template>
-    <model-gltf src="static/models/sunxin/glTF/body.gltf"></model-gltf>
+    <model-gltf src="static/models/gltf/test/test.gltf"></model-gltf>
 </template>
 
 <script>
