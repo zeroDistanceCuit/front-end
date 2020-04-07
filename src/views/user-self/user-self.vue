@@ -1,6 +1,10 @@
 <template>
-<!-- TODO 加人物模型 -->
-  <div>USER SELF</div>
+<!-- 加人物模型 -->
+  <div>
+    <el-card body-style="padding:0px">
+    <ThreeModel/>
+    </el-card>
+  </div>
 </template>
 
 <script>

@@ -57,7 +57,7 @@ export const loginModel = {
             // console.log(tab, event);
         },
         onSubmitLogin() {
-            // TODO 除了触发式动作用到配发事件，其他都需要考虑可持续化
+            // 除了触发式动作用到配发事件，其他都需要考虑可持续化
             this.storage.setItem("role", this.loginForm.role)
             let param = {
                 name: this.loginForm.userName,
@@ -65,7 +65,7 @@ export const loginModel = {
             }
             if (this.loginForm.role === 'buyer') {
                 this.POST('/api/user/login', param).then(res => {
-                    // TODO 获取用户id并进行保存
+                    // 获取用户id并进行保存
                     this.$store.dispatch('setUserAuthToken', res.result.data)
                     this.storage.setItem("token", res.result.data)
                     this.storage.setItem("userId", res.userId)
@@ -85,7 +85,7 @@ export const loginModel = {
                 })
             } else {
                 this.POST('/api/bussiness/login', param).then(res => {
-                    // TODO 获取用户id并进行保存
+                    // 获取用户id并进行保存
                     this.$store.dispatch('setUserAuthToken', res.result.data)
                     this.storage.setItem("token", res.result.data)
                     this.storage.setItem("userId", res.userId)

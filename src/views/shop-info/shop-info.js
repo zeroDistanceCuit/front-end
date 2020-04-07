@@ -1,18 +1,29 @@
 import { Message } from "element-ui";
 import store from '@/store/user-auth/index'
+import ThreeModel from '@/components/three-model/three-model.vue';
 export const shopInfo = {
+    components: {
+        ThreeModel: ThreeModel
+    },
     data() {
         return {
             shopInfo: {},
-            num: 1
+            num: 1,
+            centerDialogVisible: false,
+            type: "shop"
         }
     },
     store,
     created() {
         this.shopInfo = this.$store.getters.getShopInfo
+        let modelInfo = {
+            type: "shop",
+            modelId: this.$store.getters.getShopInfo.Goods.GoodsModelId
+        }
+        this.$store.dispatch('setModel', modelInfo)
     },
 
-    // TODO 通过vuex获取数据
+    // 通过vuex获取数据
     methods: {
         numChange(value) {
             if (value == this.shopInfo.Goods.Num) {
@@ -25,21 +36,21 @@ export const shopInfo = {
         },
         // TODO 
         addCart() {
-            let time=new Date(); 
+            let time = new Date();
             let param = {
                 userId: Number(this.storage.getItem('userId')),
-                num:this.num,
-                shopsId:this.shopInfo.Id,
-                bussinessId:this.shopInfo.Bussiness.Id,
-                status:"onGoing",
-                time:time.getFullYear()+"-"+JSON.stringify(Number(time.getMonth())+1)+"-"+time.getDate()
+                num: this.num,
+                shopsId: this.shopInfo.Id,
+                bussinessId: this.shopInfo.Bussiness.Id,
+                status: "onGoing",
+                time: time.getFullYear() + "-" + JSON.stringify(Number(time.getMonth()) + 1) + "-" + time.getDate()
             }
-            this.POST("/api/cart/add",param).then(res=>{
-               Message({
-                        message: res.result.message,
-                        duration: 2000,
-                        type: "info"
-                    })
+            this.POST("/api/cart/add", param).then(res => {
+                Message({
+                    message: res.result.message,
+                    duration: 2000,
+                    type: "info"
+                })
             })
         }
     },

@@ -1,6 +1,6 @@
 const getters = {
-    getShops(state){
-        return state.shopsInfo
+    getModel(state){
+        return state.modelInfo
     }
 }
 

@@ -1,6 +1,6 @@
 const actions = {
-    setShops({ state },value) {
-        state.shopsInfo = value
+    setModel({ state },value) {
+        state.modelInfo = value
     }
 }
 

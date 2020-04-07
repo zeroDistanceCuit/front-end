@@ -74,7 +74,7 @@
     </div>
     <div>
       <el-dialog :visible.sync="dialogDeleteVisible" width="30%">
-        <!-- TODO 需要捆绑数据 -->
+        <!-- 需要捆绑数据 -->
         <el-input-number
           style="float:left;margin-top:2%;margin-left:5%;"
           v-model="num2"

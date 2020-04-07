@@ -3,7 +3,10 @@ import { OBJLoader, MTLLoader } from 'three-obj-mtl-loader';
 // import { CSS2DRenderer, CSS2DObject } from 'three-css2drender';
 const OrbitControls = require('three-orbit-controls')(THREE);
 export const threeModel = {
-    //three-orbit-controls,three-obj-mtl-loader,three-css2drender
+    props: {
+        modelId: Number
+        // require:true
+    },
     data() {
         return {
             scene: '',
@@ -12,6 +15,10 @@ export const threeModel = {
             controls: '',
             renderer: '',
         }
+    },
+    mounted() {
+        console.log("dska")
+        console.log(modelId)
     },
     methods: {
         //初始化three.js相关内容
@@ -73,8 +80,9 @@ export const threeModel = {
         }
     },
     mounted() {
-        this.init();
-        this.loadObj();
-        this.animate();
+        console.log(this.modelId)
+        // this.init();
+        // this.loadObj();
+        // this.animate();
     }
 }

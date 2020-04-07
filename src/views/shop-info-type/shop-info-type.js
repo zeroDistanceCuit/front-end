@@ -16,13 +16,11 @@ export const shopInfoType = {
         }
     },
     store,
-    watch: {
-        '$store.getters.getShops': {
-            handler(cur, old) {
-                if (cur != old) {
-                    this.getShopsList(cur)
-                }
-            }
+    created() {
+        if (this.$route.query.q) {
+            this.GET('/api/shops/searchByShopName?name=' + this.$route.query.q).then(res => {
+                this.shopsList = res.result.data
+            })
         }
     },
     methods: {
@@ -68,14 +66,14 @@ export const shopInfoType = {
         // 根据类型获取，
         getShopList() {
             this.GET('/api/shops/searchByType?type=' + this.shopType).then(res => {
-                this.shopsList=res.result.data
+                this.shopsList = res.result.data
             })
         }
 
     },
     mounted() {
         window.addEventListener('scroll', this.scrollToTop)
-         if(this.shopType != "type"){
+        if (this.shopType != "type") {
             this.getShopList()
         }
     },

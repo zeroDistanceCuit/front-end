@@ -10,6 +10,9 @@ const actions = {
     },
     setShopInfo({ state }, value) {
         state.shopInfo = value
+    },
+    setModel({ state }, value) {
+        state.modelInfo = value
     }
 }
 

@@ -88,7 +88,7 @@
         </el-menu>
       </div>
     </div>
-    <div style="margin-left:240px;margin-top:10px">
+    <div style="margin-left:240px;padding:10px">
       <router-view />
     </div>
   </div>

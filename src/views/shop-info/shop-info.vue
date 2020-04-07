@@ -62,8 +62,8 @@
             <el-button type="danger" @click="addCart">
               <i class="fa fa-cart-arrow-down" />&nbsp;加入购物车
             </el-button>
-            <el-button>
-              <i class="fa fa-heart" />&nbsp;收藏商品
+            <el-button @click="centerDialogVisible = true">
+              <i class="fa fa-eye" />&nbsp;全方位查看事物
             </el-button>
             <div style="font-size:12px;margin-top:10px">
               服务说明:
@@ -79,6 +79,9 @@
         </div>
       </div>
     </div>
+    <el-dialog title="模型" :visible.sync="centerDialogVisible" width="30%" center>
+     <ThreeModel/>
+    </el-dialog>
     <el-image style="margin-top:5px;width:100%" :src="require('../../assets/underBg.jpg')"></el-image>
   </div>
 </template>

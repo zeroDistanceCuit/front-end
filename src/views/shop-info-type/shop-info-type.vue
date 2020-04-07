@@ -4,14 +4,14 @@
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>
-          <!-- TODO 未同步处理 -->
+          <!--  未同步处理 -->
           <a href="/">男装</a>
         </el-breadcrumb-item>
         <el-breadcrumb-item :to="{path:'/shopInfo/'+shopType}">{{shopType}}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div>
-      <!-- TODO 未进行处理 -->
+      <!--未进行处理 -->
       <div class="filter">
         价格：￥&nbsp;
         <el-input v-model="money1" size="mini" style="display:inline-block;width:40px" />&nbsp;-&nbsp;
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <!-- TODO 返回顶部，未测试 -->
+    <!-- 返回顶部，未测试 -->
     <img v-if="btnFlag" class="go-top" src="../../assets/top.jpg" @click="backTop">
   </div>
 </template>
