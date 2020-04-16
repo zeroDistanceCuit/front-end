@@ -67,7 +67,7 @@
       </div>
       <div>
           <!-- TODO 计算商家销售业绩 -->
-        <el-table :data="tableData" stripe style="width: 100%">
+        <el-table :data="tableData" max-height="355" stripe style="width: 100%">
           <el-table-column prop="time" label="时间" width="200">
           </el-table-column>
           <el-table-column prop="sum" label="销售量">

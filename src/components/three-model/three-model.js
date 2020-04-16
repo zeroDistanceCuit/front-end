@@ -80,7 +80,6 @@ export const threeModel = {
         }
     },
     mounted() {
-        console.log(this.modelId)
         // this.init();
         // this.loadObj();
         // this.animate();

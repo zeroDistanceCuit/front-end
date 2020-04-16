@@ -19,8 +19,8 @@ export default {
     };
   },
   // 通过type进行判断是人模型还是商品模型
-  // 未能立刻取到modelId
-  created() {
+  // TODO 未能立刻取到modelId,存在加载顺序错误但是不会影响结果
+  mounted() {
     this.modelInfo = this.$store.getters.getModel;
     if (this.modelInfo.type === "user") {
       this.GET("/api/user/getUserFlesh?id=" + this.modelInfo.modelId).then(

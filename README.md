@@ -13,6 +13,8 @@
 - https://hbx.com/cn
 - https://www.wandouip.com/t5i42856/
 - https://hujiulong.github.io/vue-3d-model/#/demo-rotate
+- https://github.com/removeif/hexo-theme-amazing.git
+- https://draveness.me/git-comments-initialize/
 
 
 *** 任务列表 ***
